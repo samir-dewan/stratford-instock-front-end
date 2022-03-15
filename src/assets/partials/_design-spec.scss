@@ -45,7 +45,7 @@
         background-color: $background__header-hover;
         border: none;
         text-transform: capitalize;
-        padding: 0.2rem 1.5rem;
+        padding: 0.2rem 3rem;
         @include tablet {
             @include textstyle(600, 0.875rem, 1.5rem);
         }

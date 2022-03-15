@@ -1,8 +1,10 @@
 @use "./assets/partials/design-colours" as *;
+@use "./assets/partials/fonts" as *;
 
 html,
+button,
 body {
-    font-family: "Titillium Web";
+    font-family: Titillium Web, serif;
     color: $primary__text;
     margin: 0;
     padding: 0;
