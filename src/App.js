@@ -3,53 +3,55 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
+import WarehouseAddNew from "./warehouseAddNew/WarehouseAddNew";
+
 export default function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Redirect to="/warehouse" />
         </Route>
         <Route
           path="/warehouse"
           exact
           render={(routerProps) => <Warehouses {...routerProps} />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/warehouse/:warehouseId"
           exact
           render={(routerProps) => <WarehouseDetails {...routerProps} />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/warehouse/edit"
           exact
           render={(routerProps) => <WarehouseEdit {...routerProps} />}
-        />
+        /> */}
         <Route
           path="/warehouse/add-new"
           exact
           render={(routerProps) => <WarehouseAddNew {...routerProps} />}
         />
-        <Route
+        {/* <Route
           path="/inventory"
           exact
           render={(routerProps) => <Inventory {...routerProps} />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/inventory/:itemId"
           exact
           render={(routerProps) => <InventoryItem {...routerProps} />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/inventory/edit"
           exact
           render={(routerProps) => <InventoryEdit {...routerProps} />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/inventory/add-new"
           exact
           render={(routerProps) => <InventoryAddNew {...routerProps} />}
-        />
+        /> */}
       </Switch>
     </>
   );

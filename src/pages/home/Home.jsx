@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 
 //IMPORT COMPONENTS
-import WarehouseAddNew from "../../components/warehouseAddNew/WarehouseAddNew";
+import WarehouseAddNew from "../../warehouseAddNew/WarehouseAddNew";
 
 export default class Home extends Component {
   render() {
