@@ -4,14 +4,13 @@
 
 /*Mixin allows for name, size, and line height to be adjusted to design spec and mockups.*/
 @mixin textstyle($font-weight, $text-size, $line-height) {
-    font-family: "Titillium Web";
     font-weight: $font-weight;
     font-size: $text-size;
     line-height: $line-height;
 }
 
 //use these extensions to get the specified design-spec template. Then after you can adjust depending on any exceptions in the mock-ups.
-design-spec{
+.design-spec{
     &__page-header {
         @include textstyle(600, 1.75rem, 2.25rem);
         @include tablet {
@@ -40,12 +39,23 @@ design-spec{
         }
     }
     &__button {
-        @include textstyle(400, 0.8125rem, 1.25rem);
+        @include textstyle(600, 0.8125rem, 1.25rem);
+        border-radius: 4rem;
+        color: $secondary__outlines;
+        background-color: $background__header-hover;
+        border: none;
+        text-transform: capitalize;
+        padding: 0.2rem 1.5rem;
         @include tablet {
-            @include textstyle(400, 0.875rem, 1.5rem);
+            @include textstyle(600, 0.875rem, 1.5rem);
         }
         @include desktop {
-            @include textstyle(400, 0.875rem, 1.5rem);
+            @include textstyle(600, 0.875rem, 1.5rem);
+        }
+        &:hover {
+            background-color: $primary__text;
+            color: $background__page-table-CTA;
+            border: 1px solid $primary__interactive;
         }
     }
     &__link {
