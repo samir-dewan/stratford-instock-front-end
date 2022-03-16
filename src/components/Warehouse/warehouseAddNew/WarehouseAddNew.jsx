@@ -1,7 +1,7 @@
 /** @format */
 
 import "./WarehouseAddNew.scss";
-import Button from "../../Button/Button";
+import Button from "../../Utilities/Button/Button";
 import backArrow from "../../../assets/icons/arrow_back-24px.svg";
 import error from "../../../assets/icons/error-24px.svg";
 

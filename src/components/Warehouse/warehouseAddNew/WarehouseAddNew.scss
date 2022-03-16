@@ -1,9 +1,9 @@
 /** @format */
 
-@use "../../../assets/partials/breakpoints" as *;
-@use "../../../assets/partials/design-spec" as *;
-@use "../../../assets/partials/design-colours" as *;
-@use "../../../assets/partials/resets" as *;
+@use "../../../styles/partials/breakpoints" as *;
+@use "../../../styles/partials/design-spec" as *;
+@use "../../../styles/partials/design-colours" as *;
+@use "../../../styles/partials/resets" as *;
 
 .warehouse {
   color: $primary__text;

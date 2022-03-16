@@ -1,6 +1,6 @@
 /** @format */
 
-@use "../../assets/partials/design-spec" as *;
+@use "../../../styles/partials/design-spec" as *;
 
 .button {
   @extend design-spec__button;
