@@ -1,9 +1,9 @@
 /** @format */
 
 @use "../../styles/partials/breakpoints" as *;
-@use "../../assets/partials/design-colours" as *;
-@use "../../assets/partials/design-spec" as *;
-@use "../../assets/partials/fonts" as *;
+@use "../../styles/partials/design-colours" as *;
+@use "../../styles/partials/design-spec" as *;
+@use "../../styles/partials/fonts" as *;
 
 .header {
   &__main {
