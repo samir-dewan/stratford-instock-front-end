@@ -1,0 +1,155 @@
+/** @format */
+
+@use "../../../assets/partials/breakpoints" as *;
+@use "../../../assets/partials/design-spec" as *;
+@use "../../../assets/partials/design-colours" as *;
+@use "../../../assets/partials/resets" as *;
+
+.warehouse {
+  color: $primary__text;
+  background: $primary__white;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    // border-bottom: 1px solid $secondary__outlines;
+    padding: 1rem 0;
+    @include tablet {
+      justify-content: flex-start;
+      margin: 0 32px;
+      padding: 2rem 0 1.313rem 0;
+    }
+    @include desktop {
+    }
+  }
+  &__icon {
+    // align-items: center;
+    width: 16px;
+    height: 16px;
+  }
+  &__title {
+    @extend design-spec__page-header;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $secondary__outlines;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    // &:nth-child(1) {
+    //   border-left: 1px solid $secondary__outlines;
+    // }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5rem 0.75rem 1.5rem;
+  @include tablet {
+    width: 50%;
+    // margin: 2rem 2rem;
+    &:nth-child(1) {
+      border-right: 1px solid #bdc5d5;
+      //   padding: 0 2rem 0 0;
+      padding: 0 2.5rem 0 2.5rem;
+      margin: 2rem 0;
+    }
+    &:nth-child(2) {
+      //   border-right: 1px solid black;
+      padding: 0 2.5rem 0 2.5rem;
+      margin: 2rem 0;
+    }
+  }
+
+  &__heading {
+    @extend design-spec__subheader;
+    padding: 1rem 0 0.5rem 0;
+    @include tablet {
+      padding: 0 0 0.5rem 0;
+    }
+  }
+  &__label {
+    @extend design-spec__label;
+    font-weight: 600;
+    padding: 0.5rem 0 4px 0;
+  }
+  &__input {
+    border: 1px solid #bdc5d5;
+    border-radius: 20px;
+    height: 36px;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    &::placeholder {
+      @extend design-spec__label;
+      color: $secondary__header-placeholder;
+      //   padding: 8px 16px;
+    }
+    &--error {
+      border: 1px solid $supporting__outofstock;
+    }
+  }
+  &__error {
+    @extend design-spec__body-small;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-icon {
+      width: 15px;
+      height: 15px;
+    }
+    &--active {
+      visibility: visible;
+    }
+  }
+}
+
+.button__container {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 1.5rem;
+  background: rgba(247, 248, 249, 0.7);
+  border-radius: 0px 0px 3px 3px;
+}
+
+.button {
+  &:nth-child(odd) {
+    margin-right: 0.5rem;
+  }
+  &:nth-child(even) {
+    margin-left: 0.5rem;
+  }
+  &__container {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+  &__cancel {
+    background-color: $primary__white;
+    color: $secondary__header-placeholder;
+    width: 100%;
+    @include tablet {
+      max-width: 72px;
+      min-height: 38px;
+    }
+  }
+  &__warehouse {
+    background-color: $primary__interactive;
+    color: $primary__white;
+    width: 100%;
+    @include tablet {
+      max-width: 138px;
+      min-height: 38px;
+    }
+  }
+}
