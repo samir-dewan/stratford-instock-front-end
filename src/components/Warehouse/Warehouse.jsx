@@ -3,17 +3,19 @@
 //IMPORT MODULES
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
+import { GET_WAREHOUSES_API_URL } from "../../api/endpoints";
 
 //IMPORT COMPONENTS
-import WarehouseAddNew from "./WarehouseAddNew/WarehouseAddNew";
-import WarehouseDetails from "./WarehouseDetails/WarehouseDetails";
-import WarehouseEdit from "./WarehouseEdit/WarehouseEdit";
+// import WarehouseAddNew from "./WarehouseAddNew/WarehouseAddNew";
+// import WarehouseDetails from "./WarehouseDetails/WarehouseDetails";
+// import WarehouseEdit from "./WarehouseEdit/WarehouseEdit";
+import List from "../Utilities/List/List";
 
 export default class Warehouse extends Component {
 	render() {
 		return (
 			<>
-				<Switch>
+				{/* <Switch>
 					<Route
 						path="/:warehouseId"
 						exact
@@ -34,7 +36,12 @@ export default class Warehouse extends Component {
 						exact
 						render={(routerProps) => <WarehouseAddNew {...routerProps} />}
 					/>
-				</Switch>
+				</Switch> */}
+				<List
+					title="Warehouses"
+					itemType="Warehouse"
+					apiUrl={GET_WAREHOUSES_API_URL}
+				/>
 			</>
 		);
 	}
