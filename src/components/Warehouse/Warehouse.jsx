@@ -20,6 +20,11 @@ export default class Warehouse extends Component {
 						render={(routerProps) => <WarehouseDetails {...routerProps} />}
 					/>
 					<Route
+						path="/:warehouseId/delete"
+						exact
+						render={(routerProps) => <WarehouseDetails {...routerProps} />}
+					/>
+					<Route
 						path="/:warehouseId/edit"
 						exact
 						render={(routerProps) => <WarehouseEdit {...routerProps} />}
