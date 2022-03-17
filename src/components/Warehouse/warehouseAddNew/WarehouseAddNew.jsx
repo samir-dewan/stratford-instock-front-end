@@ -6,11 +6,12 @@ import backArrow from "../../../assets/icons/arrow_back-24px.svg";
 import error from "../../../assets/icons/error-24px.svg";
 
 const WarehouseAddNew = () => {
+  console.log("hello");
   return (
     <section>
       <div className="warehouse">
         <div className="warehouse__header">
-          <img className="warehouse__icon" src={backArrow} />
+          <img className="warehouse__icon" src={backArrow} alt="back arrow" />
           <h1 className="warehouse__title">Add New Warehouse</h1>
         </div>
         <div className="form-container">
@@ -20,18 +21,18 @@ const WarehouseAddNew = () => {
             <input
               className="form__input form__input--error"
               input="text"
-              name="name"
+              name="warehouseName"
               placeholder="Warehouse Name"
             />
             <p className="form__error form__error--active">
-              <img className="form__error-icon" src={error} />
+              <img className="form__error-icon" src={error} alt="" />
               This field is required
             </p>
             <label className="form__label">Street Address</label>
             <input
               className="form__input form__input--error"
               input="text"
-              name="address"
+              name="streetAddress"
               placeholder="Street Address"
             />
             <p className="form__error form__error--active">
@@ -67,7 +68,7 @@ const WarehouseAddNew = () => {
             <input
               className="form__input form__input--error"
               input="text"
-              name="name"
+              name="contactName"
               placeholder="Contact Name"
             />
             <p className="form__error form__error--active">
@@ -78,7 +79,7 @@ const WarehouseAddNew = () => {
             <input
               className="form__input form__input--error"
               input="text"
-              name="address"
+              name="position"
               placeholder="Position"
             />
             <p className="form__error form__error--active">
@@ -89,7 +90,7 @@ const WarehouseAddNew = () => {
             <input
               className="form__input form__input--error"
               input="text"
-              name="city"
+              name="phoneNumber"
               placeholder="Phone Number"
             />
             <p className="form__error form__error--active">
@@ -100,7 +101,7 @@ const WarehouseAddNew = () => {
             <input
               className="form__input form__input--error"
               input="text"
-              name="Country"
+              name="email"
               placeholder="Email"
             />
             <p className="form__error form__error--active">
