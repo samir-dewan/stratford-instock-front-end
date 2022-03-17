@@ -54,7 +54,7 @@ const WarehouseAddNew = () => {
             <input
               className="form__input form__input--error"
               input="text"
-              name="Country"
+              name="country"
               placeholder="Country"
             />
             <p className="form__error form__error--active">

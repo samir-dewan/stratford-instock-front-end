@@ -12,29 +12,9 @@ import WarehouseAddNew from "./WarehouseAddNew/WarehouseAddNew";
 
 export default class Warehouse extends Component {
   render() {
-    console.log(this.props.match.path);
     return (
       <>
-        {/* <Header /> */}
-        {/* <Route
-            path="/:warehouseId"
-            exact
-            render={(routerProps) => <WarehouseDetails {...routerProps} />}
-            />
-            <Route
-            path="/:warehouseId/edit"
-            render={(routerProps) => <WarehouseEdit {...routerProps} />}
-          /> */}
-        <Switch>
-          <Route exact path="/">
-            <h1>Warehouse HOME</h1>
-          </Route>
-          <Route
-            path="/add-new"
-            exact
-            render={(routerProps) => <WarehouseAddNew {...routerProps} />}
-          />
-        </Switch>
+        <h1>Warehouse Home</h1>
       </>
     );
   }
