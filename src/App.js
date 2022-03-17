@@ -17,35 +17,35 @@ import InventoryEdit from "./components/Inventory/InventoryEdit/InventoryEdit";
 import InventoryAddNew from "./components/Inventory/InventoryAddNew/InventoryAddNew";
 
 export default function App() {
-  return (
-    <>
-      <Header />
-      <Switch>
-        <Route
-          path="/warehouse"
-          exact
-          render={(routerProps) => <Warehouse {...routerProps} />}
-        />
-        {/* <Route
+	return (
+		<>
+			<Header />
+			<Switch>
+				<Route
+					path="/warehouse"
+					exact
+					render={(routerProps) => <Warehouse {...routerProps} />}
+				/>
+				{/* <Route
           path="/warehouse/:warehouseId"
           exact
           render={(routerProps) => <WarehouseDetails {...routerProps} />}
         /> */}
-        <Route
-          path="/:warehouseId/edit"
-          render={(routerProps) => <WarehouseEdit {...routerProps} />}
-        />
-        <Route
-          path="/warehouse/add-new"
-          exact
-          render={(routerProps) => <WarehouseAddNew {...routerProps} />}
-        />
-        {/* <Route
-          path="/inventory"
-          exact
-          render={(routerProps) => <Inventory {...routerProps} />}
-        />
-        <Route
+				<Route
+					path="/:warehouseId/edit"
+					render={(routerProps) => <WarehouseEdit {...routerProps} />}
+				/>
+				<Route
+					path="/warehouse/add-new"
+					exact
+					render={(routerProps) => <WarehouseAddNew {...routerProps} />}
+				/>
+				<Route
+					path="/inventory"
+					exact
+					render={(routerProps) => <Inventory {...routerProps} />}
+				/>
+				{/* <Route
           path="/:inventoryId"
           exact
           render={(routerProps) => <InventoryItem {...routerProps} />}
@@ -60,7 +60,7 @@ export default function App() {
           exact
           render={(routerProps) => <InventoryAddNew {...routerProps} />}
         /> */}
-      </Switch>
-    </>
-  );
+			</Switch>
+		</>
+	);
 }
