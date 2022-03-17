@@ -26,7 +26,7 @@ const List = (title, itemType, apiUrl) => {
 				<ListHeader title={title} itemType={itemType} />
 				{/* Creates a card for every item */}
 				{data.map((dataItem) => (
-					<ListCard data={dataItem} />
+					<ListCard cardType={title} data={dataItem} />
 				))}
 			</Container>
 		</>
