@@ -1,0 +1,52 @@
+/** @format */
+
+@use "../../../styles/partials/breakpoints" as *;
+@use "../../../styles/partials/design-spec" as *;
+@use "../../../styles/partials/design-colours" as *;
+@use "../../../styles/partials/resets" as *;
+
+.searchbar {
+	// Apply flexbox on its children
+	display: flex;
+	align-items: center;
+	width: 100%;
+	border: solid 1px $secondary__outlines;
+	border-radius: 20px;
+	background-color: $primary__white;
+
+	// This is just for screen readers
+	&__label {
+		visibility: none;
+	}
+
+	// Search icon
+	&__button {
+		border: none;
+		margin: 0 8px;
+		width: 18px;
+		height: 18px;
+		flex-shrink: 0;
+		flex-grow: 0;
+		background-image: url("../../../assets//icons/search-24px.svg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-color: $primary__white;
+	}
+
+	&__input {
+		width: 100%;
+		padding: 8px 0;
+		border: none;
+		background-color: $primary__white;
+		color: $primary__text;
+
+		&::placeholder {
+			color: $secondary__header-placeholder;
+		}
+	}
+
+	@include tablet {
+		// margin: 0 $larger-component-padding 0 0;
+		height: 40px;
+	}
+}
