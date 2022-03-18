@@ -1,0 +1,10 @@
+@use "../../../styles/partials/breakpoints" as *;
+@use "../../../styles/partials/design-spec" as *;
+@use "../../../styles/partials/design-colours" as *;
+@use "../../../styles/partials/resets" as *;
+
+.container {
+	padding: 16px;
+	background-color: $footer-background;
+	z-index: -10;
+}

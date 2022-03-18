@@ -9,19 +9,27 @@ import "./ListCard.scss";
 import ListDataWarehouse from "../ListDataWarehouse/ListDataWarehouse";
 import ListDataInventory from "../ListDataInventory/ListDataInventory";
 
-const ListCard = ({ cardType, data }) => {
+//IMPORT ASSETS
+import deleteIcon from "../../../../assets/icons/delete_outline-24px.svg";
+import editIcon from "../../../../assets/icons/edit-24px.svg";
+
+const ListCard = ({ cardType, data, url }) => {
+	const id = data.id;
+
 	return (
-		<div className="card">
-			{/* conditional render depending on card type */}
-			{cardType === "Warehouses" && <ListDataWarehouse data={data} />}
-			{cardType === "Inventory" && <ListDataInventory data={data} />}
-			<Link to="/{data.id}/delete">
-				<div className="card__delete-btn"></div>
-			</Link>
-			<Link to="/{data.id}/edit">
-				<div className="card__edit-btn"></div>
-			</Link>
-		</div>
+		<>
+			<div className="card">
+				{/* conditional render depending on card type */}
+				{cardType === "Warehouses" && <ListDataWarehouse data={data} />}
+				{cardType === "Inventory" && <ListDataInventory data={data} />}
+				<Link to={`${url}/${id}/delete`}>
+					<img src={deleteIcon} alt="delete" className="card__delete-btn" />
+				</Link>
+				<Link to={`${url}/${id}/edit`}>
+					<img src={editIcon} alt="edit" className="card__edit-btn" />
+				</Link>
+			</div>
+		</>
 	);
 };
 

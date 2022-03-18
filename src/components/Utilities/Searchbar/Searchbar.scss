@@ -6,13 +6,18 @@
 @use "../../../styles/partials/resets" as *;
 
 .searchbar {
-	// Apply flexbox on its children
+	flex-shrink: 0;
 	display: flex;
 	align-items: center;
 	width: 100%;
 	border: solid 1px $secondary__outlines;
 	border-radius: 20px;
 	background-color: $primary__white;
+	margin-bottom: 16px;
+
+	&:active {
+		border-color: $primary__interactive;
+	}
 
 	// This is just for screen readers
 	&__label {
@@ -22,7 +27,7 @@
 	// Search icon
 	&__button {
 		border: none;
-		margin: 0 8px;
+		margin: 0 9px 0 0;
 		width: 18px;
 		height: 18px;
 		flex-shrink: 0;
@@ -35,10 +40,16 @@
 
 	&__input {
 		width: 100%;
-		padding: 8px 0;
+		padding: 12px 0;
 		border: none;
+		margin-left: 16px;
 		background-color: $primary__white;
-		color: $primary__text;
+		color: $secondary__header-placeholder;
+		font-size: 13px;
+
+		&:active {
+			border-color: none;
+		}
 
 		&::placeholder {
 			color: $secondary__header-placeholder;
@@ -46,7 +57,12 @@
 	}
 
 	@include tablet {
-		// margin: 0 $larger-component-padding 0 0;
+		width: 185px;
 		height: 40px;
+		margin: 0 16px 0 0;
+
+		&__input {
+			padding: 8px 0;
+		}
 	}
 }

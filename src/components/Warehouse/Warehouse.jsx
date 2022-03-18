@@ -1,7 +1,7 @@
 /** @format */
 
 //IMPORT MODULES
-import React, { Component } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { GET_WAREHOUSES_API_URL } from "../../api/endpoints";
 
@@ -11,11 +11,10 @@ import { GET_WAREHOUSES_API_URL } from "../../api/endpoints";
 // import WarehouseEdit from "./WarehouseEdit/WarehouseEdit";
 import List from "../Utilities/List/List";
 
-export default class Warehouse extends Component {
-	render() {
-		return (
-			<>
-				{/* <Switch>
+const Warehouse = ({ match }) => {
+	return (
+		<>
+			{/* <Switch>
 					<Route
 						path="/:warehouseId"
 						exact
@@ -37,12 +36,14 @@ export default class Warehouse extends Component {
 						render={(routerProps) => <WarehouseAddNew {...routerProps} />}
 					/>
 				</Switch> */}
-				<List
-					title="Warehouses"
-					itemType="Warehouse"
-					apiUrl={GET_WAREHOUSES_API_URL}
-				/>
-			</>
-		);
-	}
-}
+			<List
+				title="Warehouses"
+				itemType="Warehouse"
+				apiUrl={GET_WAREHOUSES_API_URL}
+				url={match.url}
+			/>
+		</>
+	);
+};
+
+export default Warehouse;

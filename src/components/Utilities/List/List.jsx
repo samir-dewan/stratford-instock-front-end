@@ -3,12 +3,13 @@
 //IMPORT MODULES
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./List.scss";
 
 //IMPORT COMPONENTS
 import ListHeader from "./ListHeader/ListHeader";
 import ListCard from "./ListCard/ListCard";
 
-const List = ({ title, itemType, apiUrl }) => {
+const List = ({ title, itemType, apiUrl, url }) => {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
@@ -24,7 +25,7 @@ const List = ({ title, itemType, apiUrl }) => {
 			<ListHeader title={title} itemType={itemType} />
 			{/* Creates a card for every item */}
 			{data.map((dataItem) => (
-				<ListCard key={data.id} cardType={title} data={dataItem} />
+				<ListCard key={data.id} cardType={title} data={dataItem} url={url} />
 			))}
 		</div>
 	);
