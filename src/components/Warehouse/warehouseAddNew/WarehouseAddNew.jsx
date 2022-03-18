@@ -14,6 +14,7 @@ export default class WarehouseAddNew extends Component {
     super(props);
     this.state = {
       //VALIDATION STATES
+      formValid: false,
       warehouseNameValid: true,
       addressValid: true,
       cityValid: true,
@@ -42,151 +43,147 @@ export default class WarehouseAddNew extends Component {
     });
   };
 
+  handleContactChange = (e) => {
+    this.setState({
+      contact: { ...this.state.contact, [e.target.name]: e.target.value },
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit Pressed");
-    this.validate(e);
+    if (this.validate()) {
+      this.createNewWarehouse();
+    }
+  };
 
-    // console.log(e);
-    // toast.configure();
-    // this.createNewWarehouse();
-    // this.isFormValid(e);
+  warehouseNameValidation = () => {
+    //Warehouse Name
+    if (this.state.warehouseName.length > 4) {
+      this.setState({ warehouseNameValid: true });
+      // console.log("valid return");
+      return true;
+    } else {
+      this.setState({ warehouseNameValid: false });
+      return false;
+    }
+  };
+
+  addressValidation = () => {
+    // //Address Name
+    if (this.state.streetAddress.length > 6) {
+      this.setState({ addressValid: true });
+      return true;
+    } else {
+      this.setState({ addressValid: false });
+      return false;
+    }
+  };
+
+  cityValidation = () => {
+    // //City
+    if (this.state.city.length > 6) {
+      this.setState({ cityValid: true });
+      return true;
+    } else {
+      this.setState({ cityValid: false });
+      return false;
+    }
+  };
+
+  countryValidation = () => {
+    // //Country
+    if (this.state.country.length > 6) {
+      this.setState({ countryValid: true });
+      return true;
+    } else {
+      this.setState({ countryValid: false });
+      return false;
+    }
+  };
+
+  contactNameValidation = () => {
+    //Contact Name
+    // console.log(this.state.contact.contactName.length);
+    if (this.state.contact.contactName.length > 4) {
+      console.log(this.state.contact.contactName.length);
+      this.setState({ contactNameValid: true });
+      return true;
+    } else {
+      console.log(this.state.contact.contactName);
+      this.setState({ contactNameValid: false });
+      return false;
+    }
+  };
+
+  positionValidation = () => {
+    //Position
+    if (this.state.contact.position.length > 6) {
+      this.setState({ positionValid: true });
+      return true;
+    } else {
+      this.setState({ positionValid: false });
+      return false;
+    }
+  };
+
+  phoneValidation = () => {
+    //Phone Number
+    if (this.state.contact.phoneNumber.length > 6) {
+      this.setState({ phoneValid: true });
+      return true;
+    } else {
+      this.setState({ phoneValid: false });
+      return false;
+    }
+  };
+
+  emailValidation = () => {
+    //Email
+    if (
+      this.state.contact.email.length > 6 &&
+      this.state.contact.email.includes("@")
+    ) {
+      this.setState({ emailValid: true });
+      return true;
+    } else {
+      this.setState({ emailValid: false });
+      return false;
+    }
   };
 
   validate = (e) => {
-    // console.log("Validated Function Started");
-    // console.log(this.state.warehouseName.length);
-    // let warehouseNameError = "";
-
-    //Warehouse Name
-    if (this.state.warehouseName.length > 6) {
-      console.log("Valid");
-      this.setState({ warehouseNameValid: true }, () => {
-        console.log(this.state);
-      });
-    } else {
-      console.log("Invalid");
-      this.setState({ warehouseNameValid: false }, () => {
-        console.log(this.state);
-      });
-    }
-    //Address Name
-    if (this.state.streetAddress.length > 6) {
-      console.log("Valid");
-      this.setState({ addressValid: true }, () => {
-        // console.log(this.state);
-      });
-    } else {
-      console.log("Invalid");
-      this.setState({ addressValid: false }, () => {
-        // console.log(this.state);
-      });
+    //put all the functions in one line.
+    if (!this.warehouseNameValidation()) {
+      return false;
     }
 
-    //City
-    if (this.state.city.length > 6) {
-      console.log("Valid");
-      this.setState({ cityValid: true }, () => {
-        // console.log(this.state);
-      });
-    } else {
-      console.log("Invalid");
-      this.setState({ cityValid: false }, () => {
-        // console.log(this.state);
-      });
+    if (!this.addressValidation()) {
+      return false;
     }
 
-    //Country
-    if (this.state.country.length > 6) {
-      console.log("Valid");
-      this.setState({ countryValid: true }, () => {
-        // console.log(this.state);
-      });
-    } else {
-      console.log("Invalid");
-      this.setState({ countryValid: false }, () => {
-        // console.log(this.state);
-      });
+    if (!this.cityValidation()) {
+      return false;
     }
 
-    //Contact Name
-    if (this.state.contact.contactName.length > 6) {
-      console.log("Valid");
-      this.setState({ contactNameValid: true }, () => {
-        // console.log(this.state);
-      });
-    } else {
-      console.log("Invalid");
-      this.setState({ contactNameValid: false }, () => {
-        // console.log(this.state);
-      });
+    if (!this.countryValidation()) {
+      return false;
+    }
+    if (!this.contactNameValidation()) {
+      return false;
+    }
+    if (!this.positionValidation()) {
+      return false;
+    }
+    if (!this.phoneValidation()) {
+      return false;
     }
 
-    //Position
-    if (this.state.contact.position.length > 6) {
-      console.log("Valid");
-      this.setState({ positionValid: true }, () => {
-        // console.log(this.state);
-      });
-    } else {
-      console.log("Invalid");
-      this.setState({ positionValid: false }, () => {
-        // console.log(this.state);
-      });
+    if (!this.emailValidation()) {
+      return false;
     }
-
-    //Phone Number
-    if (this.state.contact.phoneNumber.length > 6) {
-      console.log("Valid");
-      this.setState({ phoneValid: true }, () => {
-        // console.log(this.state);
-      });
-    } else {
-      console.log("Invalid");
-      this.setState({ phoneValid: false }, () => {
-        // console.log(this.state);
-      });
-    }
-
-    //Email
-    if (this.state.contact.email.length > 6) {
-      console.log("Valid");
-      this.setState({ emailValid: true }, () => {
-        // console.log(this.state);
-      });
-    } else {
-      console.log("Invalid");
-      this.setState({ emailValid: false }, () => {
-        // console.log(this.state);
-      });
-    }
+    console.log("Validated");
+    return true;
   };
-
-  // isFormValid = (e) => {
-  //   if (this.state.title.length < 3 || this.state.description.length < 5) {
-  //     if (this.state.title.length < 3) {
-  //       this.setState({ inputTitleValid: false });
-  //       // toast.error("Error: Insert Video Title");
-  //       if (this.state.description.length < 5) {
-  //         this.setState({ inputDescriptionValid: false });
-  //         // toast.error("Error: Insert Video Description");
-  //       } else {
-  //         this.setState({ inputDescriptionValid: true });
-  //       }
-  //     } else {
-  //       this.setState({ inputTitleValid: true });
-  //       // toast.error("Error: Insert a Video Description");
-  //       return;
-  //     }
-  //   } else {
-  //     this.setState({ inputTitleValid: true, inputDescriptionValid: true });
-  //     // toast.success("Uploading...");
-  //     this.uploadVideo();
-  //     e.target.title.value = null;
-  //     e.target.description.value = null;
-  //     this.delayTimerRedirect();
-  //   }
-  // };
 
   //******** API Call To Upload A Video ******** */
   //Posts A Comment To The Video
@@ -197,16 +194,15 @@ export default class WarehouseAddNew extends Component {
       city: this.state.city,
       country: this.state.country,
       contact: {
-        contactName: this.state.contactName,
-        position: this.state.position,
-        phoneNumber: this.state.phoneNumber,
-        email: this.state.email,
+        contactName: this.state.contact.contactName,
+        position: this.state.contact.position,
+        phoneNumber: this.state.contact.phoneNumber,
+        email: this.state.contact.email,
       },
     };
-    // console.log(newWarehouse);
-    await axios.post(API_URL_NEW_WAREHOUSE, newWarehouse).then((response) => {
-      // this.getNewComment();
-    });
+    await axios
+      .post(API_URL_NEW_WAREHOUSE, newWarehouse)
+      .then((response) => {});
   };
 
   render() {
@@ -321,7 +317,7 @@ export default class WarehouseAddNew extends Component {
                 type="text"
                 name="contactName"
                 placeholder="Contact Name"
-                onChange={this.handleChange}
+                onChange={this.handleContactChange}
               />
               <p
                 className={`${
@@ -343,7 +339,7 @@ export default class WarehouseAddNew extends Component {
                 type="text"
                 name="position"
                 placeholder="Position"
-                onChange={this.handleChange}
+                onChange={this.handleContactChange}
               />
               <p
                 className={`${
@@ -365,7 +361,7 @@ export default class WarehouseAddNew extends Component {
                 type="text"
                 name="phoneNumber"
                 placeholder="Phone Number"
-                onChange={this.handleChange}
+                onChange={this.handleContactChange}
               />
               <p
                 className={`${
@@ -387,7 +383,7 @@ export default class WarehouseAddNew extends Component {
                 type="text"
                 name="email"
                 placeholder="Email"
-                onChange={this.handleChange}
+                onChange={this.handleContactChange}
               />
               <p
                 className={`${
