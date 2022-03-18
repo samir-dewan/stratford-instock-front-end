@@ -32,7 +32,9 @@ export default function App() {
           render={(routerProps) => <WarehouseDetails {...routerProps} />}
         /> */}
         <Route
-          path="/:warehouseId/edit"
+          // path="/:warehouseId/edit"
+          path="/warehouse/edit"
+          exact
           render={(routerProps) => <WarehouseEdit {...routerProps} />}
         />
         <Route

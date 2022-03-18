@@ -1,6 +1,6 @@
 /** @format */
 
-import "./WarehouseAddNew.scss";
+import "./WarehouseEdit.scss";
 import Button from "../../Utilities/Button/Button.jsx";
 import backArrow from "../../../assets/icons/arrow_back-24px.svg";
 import error from "../../../assets/icons/error-24px.svg";
@@ -9,7 +9,7 @@ import axios from "axios";
 
 const API_URL_NEW_WAREHOUSE = `http://localhost:5000/warehouse/add-new`;
 
-export default class WarehouseAddNew extends Component {
+export default class WarehouseEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -211,7 +211,7 @@ export default class WarehouseAddNew extends Component {
         <div className="warehouse">
           <div className="warehouse__header">
             <img className="warehouse__icon" src={backArrow} alt="back arrow" />
-            <h1 className="warehouse__title">Add New Warehouse</h1>
+            <h1 className="warehouse__title">Edit Warehouse</h1>
           </div>
           <form className="form-container" onSubmit={this.handleSubmit}>
             <div className="form">
