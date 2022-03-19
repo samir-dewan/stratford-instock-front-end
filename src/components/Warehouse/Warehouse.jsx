@@ -2,7 +2,7 @@
 
 //IMPORT MODULES
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { GET_WAREHOUSES_API_URL } from "../../api/endpoints";
 
 //IMPORT COMPONENTS
@@ -12,27 +12,28 @@ import WarehouseEdit from "./WarehouseEdit/WarehouseEdit";
 // import Header from "../Header/Header";
 import List from "../Utilities/List/List";
 
-const Warehouse = ({ match }) => {
+const Warehouse = (routerProps) => {
+	const url = routerProps.match.url;
 	return (
 		<>
-			<Switch>
+			{/* <Switch>
 				<Route
-					path="/:warehouseId"
+					path={`${url}/:warehouseId`}
 					exact
 					render={(routerProps) => <WarehouseDetails {...routerProps} />}
 				/>
 				<Route
-					path="/:warehouseId/delete"
+					path={`${url}/:warehouseId/delete`}
 					exact
 					render={(routerProps) => <WarehouseDetails {...routerProps} />}
 				/>
 				<Route
-					path="/:warehouseId/edit"
+					path={`${url}/:warehouseId/edit`}
 					exact
 					render={(routerProps) => <WarehouseEdit {...routerProps} />}
 				/>
 				<Route
-					path="/add-new"
+					path={`${url}/add-new`}
 					exact
 					render={(routerProps) => (
 						<WarehouseAddNew
@@ -41,12 +42,12 @@ const Warehouse = ({ match }) => {
 						/>
 					)}
 				/>
-			</Switch>
+			</Switch> */}
 			<List
 				title="Warehouses"
 				itemType="Warehouse"
 				apiUrl={GET_WAREHOUSES_API_URL}
-				url={match.url}
+				url={url}
 			/>
 		</>
 	);
