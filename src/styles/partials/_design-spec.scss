@@ -28,12 +28,14 @@
 		max-width: 1020px;
 	}
 }
+
 @mixin header-title {
 	justify-self: flex-start;
 	padding: 16px 0;
 	@include tablet {
 		padding-bottom: 8px;
 	}
+	@extend .design-spec__page-header;
 }
 
 //use these extensions to get the specified design-spec template. Then after you can adjust depending on any exceptions in the mock-ups.
@@ -96,7 +98,8 @@
 	}
 	&__table-header {
 		text-transform: uppercase;
-		@include textstyle(400, 0.6875rem, 1rem);
+		color: $secondary__header-placeholder;
+		@include textstyle(400, 0.687rem, 1rem);
 		@include tablet {
 			@include textstyle(400, 0.75rem, 1.25rem);
 		}

@@ -25,14 +25,32 @@
 
 .card {
 	@include card-container;
+
+	&__content-wrapper {
+		display: flex;
+	}
+	&__content-piece {
+		padding-right: 20px;
+		padding-bottom: 16px;
+	}
+	&__col-one {
+		width: 50%;
+	}
+	&__col-two {
+		width: 50%;
+	}
+
 	&__label {
+		@extend .design-spec__table-header;
 	}
 	&__info {
+		@extend .design-spec__body-medium;
 	}
 	&__status {
 	}
-	&__delete-btn {
-	}
-	&__edit-btn {
+	&__actions {
+		display: flex;
+		justify-content: space-between;
+		margin: 3px 0;
 	}
 }

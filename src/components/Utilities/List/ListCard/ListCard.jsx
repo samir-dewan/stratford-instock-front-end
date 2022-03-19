@@ -22,12 +22,14 @@ const ListCard = ({ cardType, data, url }) => {
 				{/* conditional render depending on card type */}
 				{cardType === "Warehouses" && <ListDataWarehouse data={data} />}
 				{cardType === "Inventory" && <ListDataInventory data={data} />}
-				<Link to={`${url}/${id}/delete`}>
-					<img src={deleteIcon} alt="delete" className="card__delete-btn" />
-				</Link>
-				<Link to={`${url}/${id}/edit`}>
-					<img src={editIcon} alt="edit" className="card__edit-btn" />
-				</Link>
+				<div className="card__actions">
+					<Link to={`${url}/${id}/delete`}>
+						<img src={deleteIcon} alt="delete" />
+					</Link>
+					<Link to={`${url}/${id}/edit`}>
+						<img src={editIcon} alt="edit" />
+					</Link>
+				</div>
 			</div>
 		</>
 	);
