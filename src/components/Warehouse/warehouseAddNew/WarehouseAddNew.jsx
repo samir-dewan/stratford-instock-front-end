@@ -397,12 +397,16 @@ export default class WarehouseAddNew extends Component {
               </p>
             </div>
             <div className="button__container">
-              <button className="button button__cancel" label="Cancel" />
+              <button className="button button__cancel" label="Cancel">
+                Cancel
+              </button>
               <button
                 type="submit"
                 className="button button__warehouse"
                 label="+ Add Warehouse"
-              />
+              >
+                + Add Warehouse
+              </button>
             </div>
           </form>
         </div>

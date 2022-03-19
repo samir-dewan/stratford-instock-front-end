@@ -7,9 +7,9 @@ import { Route, Switch, Redirect } from "react-router-dom";
 //IMPORT COMPONENTS
 import Header from "./components/Header/Header";
 import Warehouse from "./components/Warehouse/Warehouse";
-import WarehouseDetails from "./components/Warehouse/WarehouseDetails/WarehouseDetails";
-import WarehouseEdit from "./components/Warehouse/WarehouseEdit/WarehouseEdit";
-import WarehouseAddNew from "./components/Warehouse/WarehouseAddNew/WarehouseAddNew";
+import WarehouseDetails from "./components/Warehouse/WarehouseDetails/WarehouseDetails.jsx";
+import WarehouseEdit from "./components/Warehouse/WarehouseEdit/WarehouseEdit.jsx";
+import WarehouseAddNew from "./components/Warehouse/WarehouseAddNew/WarehouseAddNew.jsx";
 
 import Inventory from "./components/Inventory/Inventory";
 import InventoryItem from "./components/Inventory/InventoryItem/InventoryItem";

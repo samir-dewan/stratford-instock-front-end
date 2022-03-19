@@ -1,7 +1,7 @@
 /** @format */
 
 import "./WarehouseEdit.scss";
-import Button from "../../Utilities/Button/Button.jsx";
+// import Button from "../../Utilities/Button/Button.jsx";
 import backArrow from "../../../assets/icons/arrow_back-24px.svg";
 import error from "../../../assets/icons/error-24px.svg";
 import React, { Component } from "react";
@@ -397,12 +397,16 @@ export default class WarehouseEdit extends Component {
               </p>
             </div>
             <div className="button__container">
-              <button className="button button__cancel" label="Cancel" />
+              <button className="button button__cancel" label="Cancel">
+                Cancel
+              </button>
               <button
                 type="submit"
                 className="button button__warehouse"
-                label="+ Add Warehouse"
-              />
+                label="Edit Warehouse"
+              >
+                Edit Warehouse
+              </button>
             </div>
           </form>
         </div>
