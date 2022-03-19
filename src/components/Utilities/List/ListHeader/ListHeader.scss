@@ -4,9 +4,7 @@
 @use "../../../../styles/partials/resets" as *;
 
 .header-container {
-	@extend .design-spec__card-top;
-	padding: 16px 24px;
-	background-color: $primary__white;
+	@include header-container;
 }
 
 .list {
@@ -34,8 +32,7 @@
 		}
 	}
 	&__title {
-		justify-self: flex-start;
-		padding: 16px 0;
+		@include header-title;
 	}
 	&__add-button {
 		flex-shrink: 0;

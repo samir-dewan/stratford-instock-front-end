@@ -6,7 +6,25 @@
 @use "../../../../styles/partials/design-colours" as *;
 @use "../../../../styles/partials/resets" as *;
 
+@mixin card-container {
+	padding: 16px;
+	border-top: solid 1px $secondary__outlines;
+	background-color: $primary__white;
+	z-index: -10;
+
+	@include tablet {
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+	@include desktop {
+		padding: 16px 40px;
+		margin: 0 auto;
+		max-width: 1020px;
+	}
+}
+
 .card {
+	@include card-container;
 	&__label {
 	}
 	&__info {

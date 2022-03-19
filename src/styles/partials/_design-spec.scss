@@ -11,6 +11,31 @@
 	line-height: $line-height;
 }
 
+// White background and responsive padding for all headers
+@mixin header-container {
+	@extend .design-spec__card-top;
+	padding: 16px 24px;
+	background-color: $primary__white;
+	z-index: -10;
+
+	@include tablet {
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+	@include desktop {
+		padding: 16px 40px;
+		margin: 0 auto;
+		max-width: 1020px;
+	}
+}
+@mixin header-title {
+	justify-self: flex-start;
+	padding: 16px 0;
+	@include tablet {
+		padding-bottom: 8px;
+	}
+}
+
 //use these extensions to get the specified design-spec template. Then after you can adjust depending on any exceptions in the mock-ups.
 .design-spec {
 	&__page-header {
