@@ -147,3 +147,89 @@
 		border-radius: 0 0 3px 3px;
 	}
 }
+
+@mixin m-page-header {
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+@mixin d-t-page-header {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+@mixin m-sub-header {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@mixin d-t-sub-header {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@mixin m-page-label-link-button {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+@mixin d-t-page-label-link-button {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+}
+
+@mixin m-table-header {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+}
+
+@mixin d-t-table-header {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+@mixin m-body-large {
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+}
+
+@mixin d-t-body-large {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+@mixin m-body-medium {
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+}
+
+@mixin d-t-body-medium {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+@mixin m-body-small {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+}
+
+@mixin d-t-body-small {
+  font-weight: 400;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+}
