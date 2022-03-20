@@ -2,10 +2,13 @@
 
 // @use "./variables" as *;
 
+@use "./design-colours" as *;
+@use "./fonts" as *;
+
 html,
 body {
-  // font-family: Avenir, "serif";
-  // color: $fnt-clr-primary-dark;
+  font-family: Titillium Web, serif;
+  color: $primary__text;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;

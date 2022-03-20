@@ -405,7 +405,7 @@ export default class WarehouseEdit extends Component {
                 className="button button__warehouse"
                 label="Edit Warehouse"
               >
-                Edit Warehouse
+                Save
               </button>
             </div>
           </form>

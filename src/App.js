@@ -56,12 +56,12 @@ export default function App() {
           path="/:inventoryId/edit"
           exact
           render={(routerProps) => <InventoryEdit {...routerProps} />}
-        />
+        /> */}
         <Route
-          path="/add-new"
+          path="/inventory/add-new"
           exact
           render={(routerProps) => <InventoryAddNew {...routerProps} />}
-        /> */}
+        />
       </Switch>
     </>
   );
