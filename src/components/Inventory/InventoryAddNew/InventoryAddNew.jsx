@@ -9,7 +9,6 @@ import axios from "axios";
 
 const API_URL_NEW_WAREHOUSE = `http://localhost:5000/warehouse/add-new`;
 
-const input = document.querySelector(".form__input");
 export default class AddNewInventoryItem extends Component {
   constructor(props) {
     super(props);
@@ -19,11 +18,11 @@ export default class AddNewInventoryItem extends Component {
       descriptionValid: true,
       categoryValid: true,
       statusValid: true,
-      inStockValid: true,
-      outOfStockValid: true,
       quantityValid: true,
       warehouseValid: true,
       //FORM STATES
+      inStockValid: true,
+      outOfStockValid: true,
       itemName: "",
       description: "",
       category: "",
@@ -34,29 +33,44 @@ export default class AddNewInventoryItem extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      () => {
+        console.log(this.state.status);
+        if (this.state.status == "0") {
+          this.setState({ inStockValid: true });
+          document.getElementById("quantity").classList.add("quantity--hidden");
+          document
+            .getElementById("quantityTitle")
+            .classList.add("quantity--hidden");
+          // this.setState({ quantity: e.target.value });
+          return true;
+        } else if (this.state.status == "1") {
+          this.setState({ outOfStockValid: true });
+          document
+            .getElementById("quantity")
+            .classList.remove("quantity--hidden");
+          document
+            .getElementById("quantityTitle")
+            .classList.remove("quantity--hidden");
+          // this.setState({ quantity: "0" });
+          return true;
+        }
+      }
+    );
   };
-
-  // handleContactChange = (e) => {
-  //   this.setState({
-  //     contact: { ...this.state.contact, [e.target.name]: e.target.value },
-  //   });
-  // };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (this.validate()) {
-      // this.createNewWarehouse();
-    }
+    this.validate();
   };
 
   itemNameValidation = () => {
     //Warehouse Name
     if (this.state.itemName.length > 4) {
       this.setState({ itemNameValid: true });
-      // console.log("valid return");
       return true;
     } else {
       this.setState({ itemNameValid: false });
@@ -77,7 +91,6 @@ export default class AddNewInventoryItem extends Component {
 
   categoryValidation = () => {
     // //City
-    // console.log(this.state.category);
     if (this.state.category > 0) {
       this.setState({ categoryValid: true });
       return true;
@@ -87,59 +100,27 @@ export default class AddNewInventoryItem extends Component {
     }
   };
 
-  // inStockValidation = () => {
-  //   // //Country
-  //   if (this.state.inStock.value == true) {
-  //     this.setState({ inStockValid: true });
-  //     return true;
-  //   } else if (this.state.outOfStockName.checked == true) {
-  //     this.setState({ outOfStockValid: true });
-  //     return true;
-  //   } else {
-  //     this.setState({ outOfStockValid: false, inStockValid: false });
-  //     return false;
-  //   }
-  // };
-
   statusValidation = () => {
-    //quantity
-    // console.log(this.state.status);
-    if (this.state.status == "1") {
+    if (this.state.status == "1" || this.state.status == "0") {
       this.setState({
         statusValid: true,
-        inStockValid: true,
-        outOfStockValid: false,
-      });
-      return true;
-    } else if (this.state.status == "0") {
-      this.setState({
-        statusValid: true,
-        outOfStockValid: true,
-        inStockValid: false,
       });
       return true;
     } else {
       this.setState({
         statusValid: false,
       });
+      return false;
     }
   };
 
   quantityValidation = () => {
-    //quantity
-    // console.log(this.state.quantity.value);
-    console.log(this.state.outOfStockValid);
-    if (
-      this.state.inStockValid == false &&
-      this.state.outOfStockValid == true
-    ) {
-      this.setState({ quantityValid: true, quantity: "0" });
-      return true;
-    }
-    if (this.state.quantity > 0) {
+    if (this.state.status == "0") {
       this.setState({ quantityValid: true });
       return true;
-    } else if (this.state.quantity == "0") {
+    }
+
+    if (this.state.quantity > 0) {
       this.setState({ quantityValid: true });
       return true;
     } else this.setState({ quantityValid: false });
@@ -304,7 +285,7 @@ export default class AddNewInventoryItem extends Component {
                   id="inStock"
                   name="status"
                   value="1"
-                  onChange={this.handleChange}
+                  onClick={this.handleChange}
                 />
                 <label className="form__label radio-label">In Stock</label>
                 <input
@@ -317,7 +298,7 @@ export default class AddNewInventoryItem extends Component {
                   id="outOfStock"
                   name="status"
                   value="0"
-                  onChange={this.handleChange}
+                  onClick={this.handleChange}
                 />
                 <label className="form__label radio-label">Out of Stock</label>
                 <p
@@ -331,12 +312,14 @@ export default class AddNewInventoryItem extends Component {
                   This field is required
                 </p>
               </div>
-              <label className="form__label">Quantity</label>
+              <label id="quantityTitle" className="form__label">
+                Quantity
+              </label>
               <input
                 className={`${
                   !this.state.quantityValid
-                    ? "form__input form__input--error quantity"
-                    : "form__input quantity"
+                    ? "form__input form__input--error"
+                    : "form__input"
                 }`}
                 type="text"
                 id="quantity"
