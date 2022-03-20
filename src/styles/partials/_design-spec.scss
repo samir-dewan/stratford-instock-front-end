@@ -139,7 +139,7 @@
 		border-radius: 3px 3px 0 0;
 	}
 	&__card-middle {
-		@extend .design-spec__card-top;
+		box-shadow: 0 0 5px rgba(19, 24, 44, 0.1);
 		border-radius: 0;
 	}
 	&__card-bottom {
