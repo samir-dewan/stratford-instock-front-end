@@ -6,15 +6,133 @@
 @use "../../../../styles/partials/design-colours" as *;
 @use "../../../../styles/partials/resets" as *;
 
+@mixin card-container {
+	@extend .design-spec__card-middle;
+	padding: 16px;
+	border-top: solid 1px $secondary__outlines;
+	background-color: $primary__white;
+	z-index: -10;
+
+	@include tablet {
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+	@include desktop {
+		padding: 16px 40px;
+		margin: 0 auto;
+		max-width: 1020px;
+	}
+}
+
 .card {
+	@include card-container;
+
+	&__one {
+		border: none;
+	}
+
+	&__content-wrapper {
+		display: flex;
+	}
+	&__content-piece {
+		padding-right: 20px;
+		padding-bottom: 16px;
+
+		a {
+			@extend .design-spec__link;
+			color: $primary__interactive;
+			font-weight: bold;
+			text-decoration: none;
+
+			:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	&__col-one,
+	&__col-two {
+		width: 50%;
+	}
+
+	&__info-wrapper {
+		display: flex;
+		padding: 16px 0;
+	}
+
 	&__label {
+		@extend .design-spec__table-header;
 	}
 	&__info {
+		@extend .design-spec__body-medium;
+
+		:hover {
+			cursor: pointer;
+		}
 	}
 	&__status {
 	}
-	&__delete-btn {
+	&__actions {
+		display: flex;
+		justify-content: space-between;
+		margin: 3px 0;
+
+		&-label {
+			width: 64px;
+			text-align: end;
+		}
 	}
-	&__edit-btn {
+}
+
+@include tablet {
+	.card {
+		display: flex;
+		align-items: center;
+		height: 98px;
+
+		&__content-wrapper {
+			display: flex;
+			flex-grow: 1;
+		}
+		&__content-piece {
+			padding: 0;
+		}
+		&__col-one {
+			width: 45%;
+			display: flex;
+			align-items: center;
+		}
+		&__col-two {
+			width: 55%;
+			display: flex;
+			align-items: center;
+		}
+
+		&__label {
+			display: none;
+		}
+		&__status {
+		}
+		&__actions {
+			justify-self: flex-end;
+
+			:nth-of-type(2) {
+				margin-left: 16px;
+			}
+		}
+	}
+
+	.warehouse-label {
+		&-1 {
+			flex-basis: 50%;
+		}
+		&-2 {
+			flex-basis: 40%;
+		}
+		&-3 {
+			flex-basis: 42%;
+		}
+		&-4 {
+			flex-basis: 54%;
+		}
 	}
 }
