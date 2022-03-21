@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 
 //IMPORT COMPONENTS
-import WarehouseAddNew from "./WarehouseAddNew/WarehouseAddNew";
+import WarehouseAddNew from "./warehouseAddNew/WarehouseAddNew";
 import WarehouseDetails from "./WarehouseDetails/WarehouseDetails";
 import WarehouseEdit from "./WarehouseEdit/WarehouseEdit";
 // import Header from "../Header/Header";

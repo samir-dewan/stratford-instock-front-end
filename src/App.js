@@ -5,11 +5,11 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 //IMPORT COMPONENTS
-import Header from "./components/Header/Header";
+import Header from "./components/header/Header";
 import Warehouse from "./components/Warehouse/Warehouse";
 import WarehouseDetails from "./components/Warehouse/WarehouseDetails/WarehouseDetails";
 import WarehouseEdit from "./components/Warehouse/WarehouseEdit/WarehouseEdit";
-import WarehouseAddNew from "./components/Warehouse/WarehouseAddNew/WarehouseAddNew";
+import WarehouseAddNew from "./components/Warehouse/warehouseAddNew/WarehouseAddNew";
 
 import Inventory from "./components/Inventory/Inventory";
 import InventoryItem from "./components/Inventory/InventoryItem/InventoryItem";
@@ -26,11 +26,11 @@ export default function App() {
           exact
           render={(routerProps) => <Warehouse {...routerProps} />}
         />
-        {/* <Route
+        <Route
           path="/warehouse/:warehouseId"
           exact
           render={(routerProps) => <WarehouseDetails {...routerProps} />}
-        /> */}
+        />
         <Route
           path="/:warehouseId/edit"
           render={(routerProps) => <WarehouseEdit {...routerProps} />}

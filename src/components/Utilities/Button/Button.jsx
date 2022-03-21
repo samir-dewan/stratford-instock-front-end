@@ -1,6 +1,6 @@
 /** @format */
 
-import "./Button.scss";
+import "./button.scss";
 
 const Button = ({ className, label }) => {
   return <button className={className}>{label}</button>;
