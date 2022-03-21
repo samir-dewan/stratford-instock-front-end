@@ -16,23 +16,23 @@ export default class WarehouseAddNew extends Component {
     this.state = {
       //VALIDATION STATES
       formValid: false,
-      warehouseNameValid: true,
+      nameValid: true,
       addressValid: true,
       cityValid: true,
       countryValid: true,
-      contactNameValid: true,
+      nameValid: true,
       positionValid: true,
       phoneValid: true,
       emailValid: true,
       //FORM STATES
-      warehouseName: "",
-      streetAddress: "",
+      name: "",
+      address: "",
       city: "",
       country: "",
       contact: {
-        contactName: "",
+        name: "",
         position: "",
-        phoneNumber: "",
+        phone: "",
         email: "",
       },
     };
@@ -57,21 +57,21 @@ export default class WarehouseAddNew extends Component {
     }
   };
 
-  warehouseNameValidation = () => {
+  nameValidation = () => {
     //Warehouse Name
-    if (this.state.warehouseName.length > 0) {
-      this.setState({ warehouseNameValid: true });
+    if (this.state.name.length > 0) {
+      this.setState({ nameValid: true });
       // console.log("valid return");
       return true;
     } else {
-      this.setState({ warehouseNameValid: false });
+      this.setState({ nameValid: false });
       return false;
     }
   };
 
   addressValidation = () => {
     // //Address Name
-    if (this.state.streetAddress.length > 0) {
+    if (this.state.address.length > 0) {
       this.setState({ addressValid: true });
       return true;
     } else {
@@ -102,16 +102,16 @@ export default class WarehouseAddNew extends Component {
     }
   };
 
-  contactNameValidation = () => {
+  nameValidation = () => {
     //Contact Name
-    // console.log(this.state.contact.contactName.length);
-    if (this.state.contact.contactName.length > 0) {
-      console.log(this.state.contact.contactName.length);
-      this.setState({ contactNameValid: true });
+    // console.log(this.state.contact.name.length);
+    if (this.state.contact.name.length > 0) {
+      console.log(this.state.contact.name.length);
+      this.setState({ nameValid: true });
       return true;
     } else {
-      console.log(this.state.contact.contactName);
-      this.setState({ contactNameValid: false });
+      console.log(this.state.contact.name);
+      this.setState({ nameValid: false });
       return false;
     }
   };
@@ -129,7 +129,7 @@ export default class WarehouseAddNew extends Component {
 
   phoneValidation = () => {
     //Phone Number
-    if (this.state.contact.phoneNumber.length > 0) {
+    if (this.state.contact.phone.length > 0) {
       this.setState({ phoneValid: true });
       return true;
     } else {
@@ -154,7 +154,7 @@ export default class WarehouseAddNew extends Component {
 
   validate = (e) => {
     //put all the functions in one line.
-    if (!this.warehouseNameValidation()) {
+    if (!this.nameValidation()) {
       return false;
     }
 
@@ -169,7 +169,7 @@ export default class WarehouseAddNew extends Component {
     if (!this.countryValidation()) {
       return false;
     }
-    if (!this.contactNameValidation()) {
+    if (!this.nameValidation()) {
       return false;
     }
     if (!this.positionValidation()) {
@@ -190,14 +190,14 @@ export default class WarehouseAddNew extends Component {
   //Posts A Comment To The Video
   createNewWarehouse = async (e) => {
     const newWarehouse = {
-      warehouseName: this.state.warehouseName,
-      streetAddress: this.state.streetAddress,
+      name: this.state.name,
+      address: this.state.address,
       city: this.state.city,
       country: this.state.country,
       contact: {
-        contactName: this.state.contact.contactName,
+        name: this.state.contact.name,
         position: this.state.contact.position,
-        phoneNumber: this.state.contact.phoneNumber,
+        phone: this.state.contact.phone,
         email: this.state.contact.email,
       },
     };
@@ -220,18 +220,18 @@ export default class WarehouseAddNew extends Component {
               <label className="form__label">Warehouse Name</label>
               <input
                 className={`${
-                  !this.state.warehouseNameValid
+                  !this.state.nameValid
                     ? "form__input form__input--error"
                     : "form__input"
                 }`}
                 type="text"
-                name="warehouseName"
+                name="name"
                 placeholder="Warehouse Name"
                 onChange={this.handleChange}
               />
               <p
                 className={`${
-                  this.state.warehouseNameValid
+                  this.state.nameValid
                     ? "form__error form__error--active"
                     : "form__error"
                 }`}
@@ -247,7 +247,7 @@ export default class WarehouseAddNew extends Component {
                     : "form__input"
                 }`}
                 type="text"
-                name="streetAddress"
+                name="address"
                 placeholder="Street Address"
                 onChange={this.handleChange}
               />
@@ -311,18 +311,18 @@ export default class WarehouseAddNew extends Component {
               <label className="form__label">Contact Name</label>
               <input
                 className={`${
-                  !this.state.contactNameValid
+                  !this.state.nameValid
                     ? "form__input form__input--error"
                     : "form__input"
                 }`}
                 type="text"
-                name="contactName"
+                name="name"
                 placeholder="Contact Name"
                 onChange={this.handleContactChange}
               />
               <p
                 className={`${
-                  this.state.contactNameValid
+                  this.state.nameValid
                     ? "form__error form__error--active"
                     : "form__error"
                 }`}
@@ -360,7 +360,7 @@ export default class WarehouseAddNew extends Component {
                     : "form__input"
                 }`}
                 type="text"
-                name="phoneNumber"
+                name="phone"
                 placeholder="Phone Number"
                 onChange={this.handleContactChange}
               />
