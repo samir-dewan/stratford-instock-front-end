@@ -86,6 +86,10 @@
 			color: $background__page-table-CTA;
 			border: 1px solid $primary__interactive;
 		}
+		&-active {
+			background-color: $primary__text;
+			color: $background__page-table-CTA;
+		}
 	}
 	&__link {
 		@include textstyle(400, 0.8125rem, 1.25rem);
