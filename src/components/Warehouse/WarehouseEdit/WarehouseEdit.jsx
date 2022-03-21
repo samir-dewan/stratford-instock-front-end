@@ -84,7 +84,7 @@ export default class WarehouseEdit extends Component {
 
   warehouseNameValidation = () => {
     //Warehouse Name
-    if (this.state.warehouseName.length > 4) {
+    if (this.state.warehouseName.length > 0) {
       this.setState({ warehouseNameValid: true });
       // console.log("valid return");
       return true;
@@ -96,7 +96,7 @@ export default class WarehouseEdit extends Component {
 
   addressValidation = () => {
     // //Address Name
-    if (this.state.streetAddress.length > 6) {
+    if (this.state.streetAddress.length > 0) {
       this.setState({ addressValid: true });
       return true;
     } else {
@@ -107,7 +107,7 @@ export default class WarehouseEdit extends Component {
 
   cityValidation = () => {
     // //City
-    if (this.state.city.length > 6) {
+    if (this.state.city.length > 0) {
       this.setState({ cityValid: true });
       return true;
     } else {
@@ -130,7 +130,7 @@ export default class WarehouseEdit extends Component {
   contactNameValidation = () => {
     //Contact Name
     // console.log(this.state.contact.contactName.length);
-    if (this.state.contact.contactName.length > 4) {
+    if (this.state.contact.contactName.length > 0) {
       console.log(this.state.contact.contactName.length);
       this.setState({ contactNameValid: true });
       return true;
@@ -143,7 +143,7 @@ export default class WarehouseEdit extends Component {
 
   positionValidation = () => {
     //Position
-    if (this.state.contact.position.length > 6) {
+    if (this.state.contact.position.length > 0) {
       this.setState({ positionValid: true });
       return true;
     } else {
@@ -154,7 +154,7 @@ export default class WarehouseEdit extends Component {
 
   phoneValidation = () => {
     //Phone Number
-    if (this.state.contact.phoneNumber.length > 6) {
+    if (this.state.contact.phoneNumber.length > 0) {
       this.setState({ phoneValid: true });
       return true;
     } else {
@@ -166,7 +166,7 @@ export default class WarehouseEdit extends Component {
   emailValidation = () => {
     //Email
     if (
-      this.state.contact.email.length > 6 &&
+      this.state.contact.email.length > 0 &&
       this.state.contact.email.includes("@")
     ) {
       this.setState({ emailValid: true });

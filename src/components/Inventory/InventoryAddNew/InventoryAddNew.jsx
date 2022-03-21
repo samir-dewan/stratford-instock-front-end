@@ -71,7 +71,7 @@ export default class AddNewInventoryItem extends Component {
 
   itemNameValidation = () => {
     //Warehouse Name
-    if (this.state.itemName.length > 4) {
+    if (this.state.itemName.length > 0) {
       this.setState({ itemNameValid: true });
       return true;
     } else {
@@ -82,7 +82,7 @@ export default class AddNewInventoryItem extends Component {
 
   descriptionValidation = () => {
     // //Address Name
-    if (this.state.description.length > 6) {
+    if (this.state.description.length > 0) {
       this.setState({ descriptionValid: true });
       return true;
     } else {
