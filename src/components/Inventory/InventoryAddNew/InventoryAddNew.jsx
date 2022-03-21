@@ -7,7 +7,7 @@ import error from "../../../assets/icons/error-24px.svg";
 import React, { Component } from "react";
 import axios from "axios";
 
-const API_URL_NEW_WAREHOUSE = `http://localhost:5000/warehouse/add-new`;
+const API_URL_NEW_INVENTORY = `http://localhost:5000/inventory/add`;
 
 export default class AddNewInventoryItem extends Component {
   constructor(props) {
@@ -64,12 +64,14 @@ export default class AddNewInventoryItem extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.validate();
+    if (this.validate()) {
+      this.createNewInventory();
+    }
   };
 
   itemNameValidation = () => {
     //Warehouse Name
-    if (this.state.itemName.length > 4) {
+    if (this.state.itemName.length > 0) {
       this.setState({ itemNameValid: true });
       return true;
     } else {
@@ -80,7 +82,7 @@ export default class AddNewInventoryItem extends Component {
 
   descriptionValidation = () => {
     // //Address Name
-    if (this.state.description.length > 6) {
+    if (this.state.description.length > 0) {
       this.setState({ descriptionValid: true });
       return true;
     } else {
@@ -167,21 +169,17 @@ export default class AddNewInventoryItem extends Component {
 
   //******** API Call To Upload A Video ******** */
   //Posts A Comment To The Video
-  createNewWarehouse = async (e) => {
+  createNewInventory = async (e) => {
     const newWarehouse = {
-      warehouseName: this.state.warehouseName,
-      streetAddress: this.state.streetAddress,
-      city: this.state.city,
-      country: this.state.country,
-      contact: {
-        contactName: this.state.contact.contactName,
-        position: this.state.contact.position,
-        phoneNumber: this.state.contact.phoneNumber,
-        email: this.state.contact.email,
-      },
+      warehouseName: this.state.warehouse,
+      itemName: this.state.itemName,
+      description: this.state.description,
+      category: this.state.category,
+      status: this.state.status,
+      quantity: this.state.quantity,
     };
     await axios
-      .post(API_URL_NEW_WAREHOUSE, newWarehouse)
+      .post(API_URL_NEW_INVENTORY, newWarehouse)
       .then((response) => {});
   };
 

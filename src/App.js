@@ -33,7 +33,7 @@ export default function App() {
         /> */}
 				<Route
 					// path="/:warehouseId/edit"
-					path="/warehouse/edit"
+					path="/warehouse/:warehouseId/edit"
 					exact
 					render={(routerProps) => <WarehouseEdit {...routerProps} />}
 				/>
@@ -42,23 +42,23 @@ export default function App() {
 					exact
 					render={(routerProps) => <WarehouseAddNew {...routerProps} />}
 				/>
-				<Route
-					path="/inventory"
-					exact
-					render={(routerProps) => <Inventory {...routerProps} />}
-				/>
 				{/* <Route
+          path="/inventory"
+          exact
+          render={(routerProps) => <Inventory {...routerProps} />}
+        />
+        <Route
           path="/:inventoryId"
           exact
           render={(routerProps) => <InventoryItem {...routerProps} />}
-        />
-        <Route
-          path="/:inventoryId/edit"
-          exact
-          render={(routerProps) => <InventoryEdit {...routerProps} />}
         /> */}
 				<Route
-					path="/inventory/add-new"
+					path="/inventories/:inventoryId/edit"
+					exact
+					render={(routerProps) => <InventoryEdit {...routerProps} />}
+				/>
+				<Route
+					path="/inventory/add"
 					exact
 					render={(routerProps) => <InventoryAddNew {...routerProps} />}
 				/>
