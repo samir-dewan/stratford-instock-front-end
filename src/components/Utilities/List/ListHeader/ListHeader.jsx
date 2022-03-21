@@ -2,6 +2,7 @@
 
 //IMPORT MODULES
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ListHeader.scss";
 
 //IMPORT COMPONENTS
@@ -15,7 +16,9 @@ const ListHeader = ({ title, itemType }) => {
 					<h1 className="list__title">{title}</h1>
 					<div className="list__header-actions">
 						<Searchbar />
-						<div className="list__add-button">+ Add New {itemType}</div>
+						<Link to="/warehouse/add-new">
+							<div className="list__add-button">+ Add New {itemType}</div>
+						</Link>
 					</div>
 				</div>
 			</div>
