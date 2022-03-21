@@ -10,6 +10,7 @@ import "../Footer/Footer.scss";
 import ListHeader from "./ListHeader/ListHeader";
 import ListCard from "./ListCard/ListCard";
 import ListWarehouseColumns from "./ListWarehouseColumns/ListWarehouseColumns";
+import ListInventoryColumns from "./ListInventoryColumns/ListInventoryColumns";
 
 const List = ({ title, itemType, apiUrl, url }) => {
 	const [data, setData] = useState([]);
@@ -30,18 +31,25 @@ const List = ({ title, itemType, apiUrl, url }) => {
 			});
 	}, [apiUrl]);
 
+	// Error message if the data could not be loaded
+	useEffect(() => {
+		data.length === 0 && (
+			<div className="list__error">
+				We apologise. There has been a problem retrieving the data.
+			</div>
+		);
+	}, [data]);
+
 	return (
 		<div className="footer">
 			<div className="list__container">
 				{/* Gives a title e.g. Warehouses and an item type e.g. warehouse */}
 				<ListHeader title={title} itemType={itemType} />
+
 				{/* Conditional import of Column Names */}
-				<ListWarehouseColumns />
-				{data.length === 0 && (
-					<div className="list__error">
-						We apologise. There has been a problem retrieving the data.
-					</div>
-				)}
+				{title === "Warehouses" && <ListWarehouseColumns />}
+				{title === "Inventory" && <ListInventoryColumns />}
+
 				{/* Creates a card for every item */}
 				{data.map((dataItem, cardIndex) => (
 					<ListCard

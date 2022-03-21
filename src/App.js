@@ -42,21 +42,12 @@ export default function App() {
 					exact
 					render={(routerProps) => <WarehouseAddNew {...routerProps} />}
 				/>
-<<<<<<< HEAD
 				<Route
 					path="/inventory"
 					exact
 					render={(routerProps) => <Inventory {...routerProps} />}
 				/>
 				{/* <Route
-=======
-				{/* <Route
-          path="/inventory"
-          exact
-          render={(routerProps) => <Inventory {...routerProps} />}
-        />
-        <Route
->>>>>>> develop
           path="/:inventoryId"
           exact
           render={(routerProps) => <InventoryItem {...routerProps} />}

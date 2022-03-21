@@ -18,38 +18,30 @@ const ListCard = ({ cardType, cardIndex, data, url }) => {
 
 	return (
 		<>
-			{/* Conditional rendering for the first card (for styling) */}
-			{cardIndex === 0 && (
-				<div className="card card__one">
-					{/* conditional render depending on card type */}
-					{cardType === "Warehouses" && <ListDataWarehouse data={data} />}
-					{cardType === "Inventory" && <ListDataInventory data={data} />}
-					<div className="card__actions">
-						<Link to={`${url}/${id}/delete`}>
-							<img src={deleteIcon} alt="delete" />
-						</Link>
-						<Link to={`${url}/${id}/edit`}>
-							<img src={editIcon} alt="edit" />
-						</Link>
-					</div>
+			{/* Conditional rendering for the first card
+			and smaller inventory cards (for styling)*/}
+			<div
+				className={
+					"card " +
+					(cardType === "Inventory" ? "card__small " : "") +
+					(cardIndex === 0 ? "card__one " : "")
+				}>
+				{/* conditional render depending on card type */}
+				{cardType === "Warehouses" && (
+					<ListDataWarehouse data={data} url={url} />
+				)}
+				{cardType === "Inventory" && (
+					<ListDataInventory data={data} url={url} />
+				)}
+				<div className="card__actions">
+					<Link to={`${url}/${id}/delete`}>
+						<img src={deleteIcon} alt="delete" />
+					</Link>
+					<Link to={`${url}/${id}/edit`}>
+						<img src={editIcon} alt="edit" />
+					</Link>
 				</div>
-			)}
-
-			{cardIndex !== 0 && (
-				<div className="card">
-					{/* conditional render depending on card type */}
-					{cardType === "Warehouses" && <ListDataWarehouse data={data} />}
-					{cardType === "Inventory" && <ListDataInventory data={data} />}
-					<div className="card__actions">
-						<Link to={`${url}/${id}/delete`}>
-							<img src={deleteIcon} alt="delete" />
-						</Link>
-						<Link to={`${url}/${id}/edit`}>
-							<img src={editIcon} alt="edit" />
-						</Link>
-					</div>
-				</div>
-			)}
+			</div>
 		</>
 	);
 };

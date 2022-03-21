@@ -13,10 +13,10 @@ import { GET_WAREHOUSES_API_URL } from "../../api/endpoints";
 import List from "../Utilities/List/List";
 
 const Warehouse = (routerProps) => {
-  const url = routerProps.match.url;
-  return (
-    <>
-      {/* <Switch>
+	const url = routerProps.match.url;
+	return (
+		<>
+			{/* <Switch>
 				<Route
 					path={`${url}/:warehouseId`}
 					exact
@@ -43,14 +43,14 @@ const Warehouse = (routerProps) => {
 					)}
 				/>
 			</Switch> */}
-      <List
-        title="Warehouses"
-        itemType="Warehouse"
-        apiUrl={GET_WAREHOUSES_API_URL}
-        url={url}
-      />
-    </>
-  );
+			<List
+				title="Warehouses"
+				itemType="Warehouse"
+				apiUrl={GET_WAREHOUSES_API_URL}
+				url={url}
+			/>
+		</>
+	);
 };
 
 export default Warehouse;
