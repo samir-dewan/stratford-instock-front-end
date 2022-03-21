@@ -6,6 +6,7 @@
 
 /*Mixin allows for name, size, and line height to be adjusted to design spec and mockups.*/
 @mixin textstyle($font-weight, $text-size, $line-height) {
+	font-family: Titillium Web, 'serif';
 	font-weight: $font-weight;
 	font-size: $text-size;
 	line-height: $line-height;
