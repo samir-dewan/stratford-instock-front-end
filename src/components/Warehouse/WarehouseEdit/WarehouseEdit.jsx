@@ -9,7 +9,7 @@ import axios from "axios";
 
 const API_URL_EDIT_WAREHOUSE = (id) =>
   `http://localhost:5000/warehouses/${id}/edit`;
-const API_URL_GET_WAREHOUSES = (id) => `http://localhost:5000/${id}/edit`;
+const API_URL_GET_WAREHOUSES = (id) => `http://localhost:5000/${id}`;
 
 export default class WarehouseEdit extends Component {
   constructor(props) {
@@ -84,7 +84,7 @@ export default class WarehouseEdit extends Component {
 
   nameValidation = () => {
     //Warehouse Name
-    if (this.state.name.length > 4) {
+    if (this.state.name.length > 0) {
       this.setState({ nameValid: true });
       // console.log("valid return");
       return true;
@@ -96,7 +96,7 @@ export default class WarehouseEdit extends Component {
 
   addressValidation = () => {
     // //Address Name
-    if (this.state.address.length > 6) {
+    if (this.state.address.length > 0) {
       this.setState({ addressValid: true });
       return true;
     } else {
@@ -107,7 +107,7 @@ export default class WarehouseEdit extends Component {
 
   cityValidation = () => {
     // //City
-    if (this.state.city.length > 6) {
+    if (this.state.city.length > 0) {
       this.setState({ cityValid: true });
       return true;
     } else {
@@ -130,7 +130,7 @@ export default class WarehouseEdit extends Component {
   nameValidation = () => {
     //Contact Name
     // console.log(this.state.contact.name.length);
-    if (this.state.contact.name.length > 4) {
+    if (this.state.contact.name.length > 0) {
       console.log(this.state.contact.name.length);
       this.setState({ nameValid: true });
       return true;
@@ -143,7 +143,7 @@ export default class WarehouseEdit extends Component {
 
   positionValidation = () => {
     //Position
-    if (this.state.contact.position.length > 6) {
+    if (this.state.contact.position.length > 0) {
       this.setState({ positionValid: true });
       return true;
     } else {
@@ -154,7 +154,7 @@ export default class WarehouseEdit extends Component {
 
   phoneValidation = () => {
     //Phone Number
-    if (this.state.contact.phone.length > 6) {
+    if (this.state.contact.phone.length > 0) {
       this.setState({ phoneValid: true });
       return true;
     } else {
@@ -166,7 +166,7 @@ export default class WarehouseEdit extends Component {
   emailValidation = () => {
     //Email
     if (
-      this.state.contact.email.length > 6 &&
+      this.state.contact.email.length > 0 &&
       this.state.contact.email.includes("@")
     ) {
       this.setState({ emailValid: true });
@@ -215,6 +215,7 @@ export default class WarehouseEdit extends Component {
   //Posts A Comment To The Video
   editWarehouse = async (e) => {
     const currentId = this.props.match.params.warehouseId;
+    // console.log(currentId);
     const newWarehouse = {
       name: this.state.name,
       address: this.state.address,
@@ -227,8 +228,9 @@ export default class WarehouseEdit extends Component {
         email: this.state.contact.email,
       },
     };
+    // console.log(newWarehouse);
     await axios
-      .post(API_URL_EDIT_WAREHOUSE(currentId), newWarehouse)
+      .put(API_URL_EDIT_WAREHOUSE(currentId), newWarehouse)
       .then((response) => {});
   };
 
