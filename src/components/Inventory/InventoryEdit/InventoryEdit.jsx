@@ -8,7 +8,8 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const API_URL_GET_INVENTORY = (id) => `http://localhost:5000/inventories/${id}`;
-const API_URL_EDIT_INVENTORY = (id) => `http://localhost:5000/${id}/edit`;
+const API_URL_EDIT_INVENTORY = (id) =>
+  `http://localhost:5000/inventories/${id}/edit`;
 
 export default class AddNewInventoryItem extends Component {
   constructor(props) {
@@ -101,7 +102,7 @@ export default class AddNewInventoryItem extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.validate()) {
-      this.createNewInventory();
+      this.editInventory();
     }
   };
 
@@ -129,7 +130,7 @@ export default class AddNewInventoryItem extends Component {
 
   categoryValidation = () => {
     // //City
-    if (this.state.category > 0) {
+    if (this.state.category != "") {
       this.setState({ categoryValid: true });
       return true;
     } else {
@@ -168,7 +169,7 @@ export default class AddNewInventoryItem extends Component {
 
   warehouseValidation = () => {
     //Phone Number
-    if (this.state.warehouseName > 0) {
+    if (this.state.warehouseName != "") {
       this.setState({ warehouseValid: true });
       return true;
     } else {
@@ -207,7 +208,7 @@ export default class AddNewInventoryItem extends Component {
   //******** API Call To Upload A Video ******** */
   //Posts A Comment To The Video
   editInventory = async (e) => {
-    const currentId = this.props.match.params.warehouseId;
+    const currentId = this.props.match.params.inventoryId;
     // console.log(currentId);
     const newInventory = {
       itemName: this.state.itemName,
@@ -294,12 +295,12 @@ export default class AddNewInventoryItem extends Component {
                 // value={this.state.category}
                 onChange={this.handleChange}
               >
-                <option value="0">{this.state.category}</option>
-                <option value="1">Accessories</option>
-                <option value="2">Apparel</option>
-                <option value="3">Electronics</option>
-                <option value="4">Gear</option>
-                <option value="5">Health</option>
+                <option value="">{this.state.category}</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Apparel">Apparel</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Gear">Gear</option>
+                <option value="Health">Health</option>
               </select>
               <p
                 className={`${
@@ -389,19 +390,19 @@ export default class AddNewInventoryItem extends Component {
                     : "form__dropdown"
                 }`}
                 type="text"
-                // name="warehouseName"
+                name="warehouseName"
                 // value={this.state.warehouseName}
                 onChange={this.handleChange}
               >
-                <option value="0">{this.state.warehouseName}</option>
-                <option value="1">Boston</option>
-                <option value="2">Jersey</option>
-                <option value="3">Manhattan</option>
-                <option value="4">Miami</option>
-                <option value="5">San Fran</option>
-                <option value="6">Santa Monica</option>
-                <option value="7">Seattle</option>
-                <option value="8">Washington</option>
+                <option value="">{this.state.warehouseName}</option>
+                <option value="Boston">Boston</option>
+                <option value="Jersey">Jersey</option>
+                <option value="Manhattan">Manhattan</option>
+                <option value="Miami">Miami</option>
+                <option value="San Fran">San Fran</option>
+                <option value="Santa Monica">Santa Monica</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Washington">Washington</option>
               </select>
               <p
                 className={`${
@@ -426,7 +427,7 @@ export default class AddNewInventoryItem extends Component {
                 className="form-button form-button__warehouse"
                 label="Add Inventory Item"
               >
-                + Add Item
+                Save
               </button>
             </div>
           </form>
