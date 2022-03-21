@@ -7,7 +7,7 @@ const Header = () => {
 	return (
 		<header className="header__main">
 			<div className="header__flex">
-				<Link to="/home">
+				<Link to="/">
 					<img className="header__logo" src={logo} alt="the instock logo" />
 				</Link>
 				<div className="header__button-flex">
