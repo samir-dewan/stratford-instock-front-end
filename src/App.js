@@ -10,7 +10,6 @@ import Warehouse from "./components/Warehouse/Warehouse";
 import WarehouseDetails from "./components/Warehouse/WarehouseDetails/WarehouseDetails";
 import WarehouseEdit from "./components/Warehouse/WarehouseEdit/WarehouseEdit";
 import WarehouseAddNew from "./components/Warehouse/WarehouseAddNew/WarehouseAddNew";
-
 import Inventory from "./components/Inventory/Inventory";
 import InventoryItem from "./components/Inventory/InventoryItem/InventoryItem";
 import InventoryEdit from "./components/Inventory/InventoryEdit/InventoryEdit";
@@ -20,6 +19,7 @@ export default function App() {
 	return (
 		<>
 			<Header />
+			{/* <Footer /> */}
 			<Switch>
 				<Route
 					path="/warehouse"

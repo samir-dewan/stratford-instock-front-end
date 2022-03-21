@@ -5,12 +5,20 @@
 
 .header-container {
 	@include header-container;
+
+	@include desktop {
+		height: 94px;
+	}
 }
 
 .list {
 	&__header {
 		display: flex;
 		flex-direction: column;
+
+		a {
+			text-decoration: none;
+		}
 
 		&-actions {
 			display: flex;
