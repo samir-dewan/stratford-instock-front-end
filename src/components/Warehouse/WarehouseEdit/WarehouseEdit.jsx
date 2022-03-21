@@ -432,12 +432,15 @@ export default class WarehouseEdit extends Component {
               </p>
             </div>
             <div className="button__container">
-              <button className="button button__cancel" label="Cancel">
+              <button
+                className="form-button form-button__cancel"
+                label="Cancel"
+              >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="button button__warehouse"
+                className="form-button form-button__warehouse"
                 label="Edit Warehouse"
               >
                 Save
