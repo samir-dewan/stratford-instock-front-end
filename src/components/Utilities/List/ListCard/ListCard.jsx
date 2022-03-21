@@ -13,7 +13,7 @@ import ListDataInventory from "../ListDataInventory/ListDataInventory";
 import deleteIcon from "../../../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../../../assets/icons/edit-24px.svg";
 
-const ListCard = ({ cardType, cardIndex, data, url, getWarehouseInfo }) => {
+const ListCard = ({ cardType, cardIndex, data, url }) => {
   const id = data.id;
 
   return (
@@ -29,7 +29,7 @@ const ListCard = ({ cardType, cardIndex, data, url, getWarehouseInfo }) => {
               <img src={deleteIcon} alt="delete" />
             </Link>
             <Link to={`${url}/${id}/edit`}>
-              <img src={editIcon} onClick={getWarehouseInfo} alt="edit" />
+              <img src={editIcon} alt="edit" />
             </Link>
           </div>
         </div>

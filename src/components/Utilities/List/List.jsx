@@ -11,7 +11,7 @@ import ListHeader from "./ListHeader/ListHeader";
 import ListCard from "./ListCard/ListCard";
 import ListWarehouseColumns from "./ListWarehouseColumns/ListWarehouseColumns";
 
-const List = ({ title, itemType, apiUrl, url, getWarehouseInfo }) => {
+const List = ({ title, itemType, apiUrl, url }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -50,7 +50,6 @@ const List = ({ title, itemType, apiUrl, url, getWarehouseInfo }) => {
             cardType={title}
             data={dataItem}
             url={url}
-            getWarehouseInfo={getWarehouseInfo}
           />
         ))}
       </div>

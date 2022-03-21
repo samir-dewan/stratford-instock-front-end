@@ -49,7 +49,6 @@ const Warehouse = (routerProps) => {
         itemType="Warehouse"
         apiUrl={GET_WAREHOUSES_API_URL}
         url={url}
-        // getWarehouseInfo={getWarehouseInfo}
       />
     </>
   );
