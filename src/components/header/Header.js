@@ -11,10 +11,10 @@ const Header = () => {
 					<img className="header__logo" src={logo} alt="the instock logo" />
 				</Link>
 				<div className="header__button-flex">
-					<Link to="/warehouses">
+					<Link to="/warehouse">
 						<button className="header__button">warehouses</button>
 					</Link>
-					<Link to="/inventories">
+					<Link to="/inventory">
 						<button className="header__button">inventories</button>
 					</Link>
 				</div>
