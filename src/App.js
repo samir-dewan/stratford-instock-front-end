@@ -53,7 +53,7 @@ export default function App() {
           render={(routerProps) => <InventoryItem {...routerProps} />}
         /> */}
         <Route
-          path="/inventory/edit"
+          path="/inventories/:inventoryId/edit"
           exact
           render={(routerProps) => <InventoryEdit {...routerProps} />}
         />

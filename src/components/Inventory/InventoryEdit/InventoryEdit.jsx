@@ -7,7 +7,9 @@ import error from "../../../assets/icons/error-24px.svg";
 import React, { Component } from "react";
 import axios from "axios";
 
-const API_URL_EDIT_INVENTORY = (id) => `http://localhost:5000/${id}/edit`;
+const API_URL_GET_INVENTORY = (id) => `http://localhost:5000/inventories/${id}`;
+const API_URL_EDIT_INVENTORY = (id) =>
+  `http://localhost:5000/inventories/${id}/edit`;
 
 export default class AddNewInventoryItem extends Component {
   constructor(props) {
@@ -28,7 +30,7 @@ export default class AddNewInventoryItem extends Component {
       category: "",
       status: "",
       quantity: "",
-      warehouse: "",
+      warehouseName: "",
     };
   }
 
@@ -37,21 +39,33 @@ export default class AddNewInventoryItem extends Component {
   }
 
   getData = async () => {
-    const currentId = this.props.match.params.warehouseId;
-    const response = await axios.get(API_URL_EDIT_INVENTORY(currentId));
-    // console.log(warehouseInfo.data);
-    const warehouseInfo = response.data;
+    const currentId = this.props.match.params.inventoryId;
+    console.log(currentId);
+    const response = await axios.get(API_URL_GET_INVENTORY(currentId));
+    console.log(response);
+    const inventoryInfo = response.data;
+    console.log(inventoryInfo.status);
+
+    if (this.state.status == "In Stock") {
+      console.log("Here");
+      this.setState({ status: "1" });
+      document.getElementById("inStock").checked = true;
+      //   return;
+    }
+    if (this.state.status !== "In Stock") {
+      this.setState({ status: "0" });
+      document.getElementById("outOfStock").checked = true;
+      console.log("Second Here");
+      //   return;
+      //   document.getElementById("outOfStock").checked = true;
+    }
+
     this.setState({
-      warehouseName: warehouseInfo.name,
-      streetAddress: warehouseInfo.address,
-      city: warehouseInfo.city,
-      country: warehouseInfo.country,
-      contact: {
-        contactName: warehouseInfo.contact.name,
-        position: warehouseInfo.contact.position,
-        phoneNumber: warehouseInfo.contact.phone,
-        email: warehouseInfo.contact.email,
-      },
+      itemName: inventoryInfo.itemName,
+      description: inventoryInfo.description,
+      category: inventoryInfo.category,
+      quantity: inventoryInfo.quantity,
+      warehouseName: inventoryInfo.warehouseName,
     });
   };
 
@@ -88,7 +102,7 @@ export default class AddNewInventoryItem extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.validate()) {
-      this.createNewInventory();
+      this.editInventory();
     }
   };
 
@@ -116,7 +130,7 @@ export default class AddNewInventoryItem extends Component {
 
   categoryValidation = () => {
     // //City
-    if (this.state.category > 0) {
+    if (this.state.category != "") {
       this.setState({ categoryValid: true });
       return true;
     } else {
@@ -140,6 +154,7 @@ export default class AddNewInventoryItem extends Component {
   };
 
   quantityValidation = () => {
+    console.log("Quantity", this.state.status);
     if (this.state.status == "0") {
       this.setState({ quantityValid: true });
       return true;
@@ -154,7 +169,7 @@ export default class AddNewInventoryItem extends Component {
 
   warehouseValidation = () => {
     //Phone Number
-    if (this.state.warehouse > 0) {
+    if (this.state.warehouseName != "") {
       this.setState({ warehouseValid: true });
       return true;
     } else {
@@ -192,18 +207,21 @@ export default class AddNewInventoryItem extends Component {
 
   //******** API Call To Upload A Video ******** */
   //Posts A Comment To The Video
-  createNewInventory = async (e) => {
-    const newWarehouse = {
-      warehouseName: this.state.warehouse,
+  editInventory = async (e) => {
+    const currentId = this.props.match.params.inventoryId;
+    // console.log(currentId);
+    const newInventory = {
       itemName: this.state.itemName,
       description: this.state.description,
       category: this.state.category,
       status: this.state.status,
       quantity: this.state.quantity,
+      warehouseName: this.state.warehouseName,
     };
-    // await axios
-    //   .post(API_URL_NEW_INVENTORY, newWarehouse)
-    //   .then((response) => {});
+    // console.log(newWarehouse);
+    await axios
+      .put(API_URL_EDIT_INVENTORY(currentId), newInventory)
+      .then((response) => {});
   };
 
   render() {
@@ -226,7 +244,8 @@ export default class AddNewInventoryItem extends Component {
                 }`}
                 type="text"
                 name="itemName"
-                placeholder="Item Name"
+                // placeholder="Item Name"
+                value={this.state.itemName}
                 onChange={this.handleChange}
               />
               <p
@@ -248,7 +267,8 @@ export default class AddNewInventoryItem extends Component {
                 }`}
                 type="text"
                 name="description"
-                placeholder="Please enter a brief item description..."
+                // placeholder="Please enter a brief item description..."
+                value={this.state.description}
                 onChange={this.handleChange}
               />
               <p
@@ -271,15 +291,16 @@ export default class AddNewInventoryItem extends Component {
                 type="text"
                 id="category"
                 name="category"
-                placeholder="Please Select"
+                // placeholder="Please Select"
+                // value={this.state.category}
                 onChange={this.handleChange}
               >
-                <option value="0">Please select</option>
-                <option value="1">Accessories</option>
-                <option value="2">Apparel</option>
-                <option value="3">Electronics</option>
-                <option value="4">Gear</option>
-                <option value="5">Health</option>
+                <option value="">{this.state.category}</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Apparel">Apparel</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Gear">Gear</option>
+                <option value="Health">Health</option>
               </select>
               <p
                 className={`${
@@ -305,7 +326,8 @@ export default class AddNewInventoryItem extends Component {
                   type="radio"
                   id="inStock"
                   name="status"
-                  value="1"
+                  //   checked={true}
+                  //   checked={this.state.status ? true : false}
                   onClick={this.handleChange}
                 />
                 <label className="form__label radio-label">In Stock</label>
@@ -318,7 +340,8 @@ export default class AddNewInventoryItem extends Component {
                   type="radio"
                   id="outOfStock"
                   name="status"
-                  value="0"
+                  //   checked={true}
+                  //   checked={this.state.status ? false : true}
                   onClick={this.handleChange}
                 />
                 <label className="form__label radio-label">Out of Stock</label>
@@ -345,7 +368,8 @@ export default class AddNewInventoryItem extends Component {
                 type="text"
                 id="quantity"
                 name="quantity"
-                placeholder="Quantity"
+                // placeholder="Quantity"
+                value={this.state.quantity}
                 onChange={this.handleChange}
               />
               <p
@@ -366,18 +390,19 @@ export default class AddNewInventoryItem extends Component {
                     : "form__dropdown"
                 }`}
                 type="text"
-                name="warehouse"
+                name="warehouseName"
+                // value={this.state.warehouseName}
                 onChange={this.handleChange}
               >
-                <option value="0">Please select</option>
-                <option value="1">Boston</option>
-                <option value="2">Jersey</option>
-                <option value="3">Manhattan</option>
-                <option value="4">Miami</option>
-                <option value="5">San Fran</option>
-                <option value="6">Santa Monica</option>
-                <option value="7">Seattle</option>
-                <option value="8">Washington</option>
+                <option value="">{this.state.warehouseName}</option>
+                <option value="Boston">Boston</option>
+                <option value="Jersey">Jersey</option>
+                <option value="Manhattan">Manhattan</option>
+                <option value="Miami">Miami</option>
+                <option value="San Fran">San Fran</option>
+                <option value="Santa Monica">Santa Monica</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Washington">Washington</option>
               </select>
               <p
                 className={`${
@@ -402,7 +427,7 @@ export default class AddNewInventoryItem extends Component {
                 className="form-button form-button__warehouse"
                 label="Add Inventory Item"
               >
-                + Add Item
+                Save
               </button>
             </div>
           </form>
