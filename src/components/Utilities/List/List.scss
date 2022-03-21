@@ -3,18 +3,19 @@
 @use "../../../styles/partials/design-colours" as *;
 @use "../../../styles/partials/resets" as *;
 
-.container {
-	padding: 16px;
-	background-color: $background__page-table-CTA;
-	z-index: -10;
-
-	@include tablet {
-		padding-left: 32px;
-		padding-right: 32px;
+.list {
+	&__error {
+		padding: 32px;
+		background-color: $supporting__outofstock;
+		color: $primary__white;
 	}
-	@include desktop {
-		padding: 35px 0 70px 0;
-		margin: 0 auto;
-		max-width: 1020px;
+}
+
+@include tablet {
+	.list {
+		&__error {
+			margin: 32px 0;
+			padding: 32px 64px;
+		}
 	}
 }
