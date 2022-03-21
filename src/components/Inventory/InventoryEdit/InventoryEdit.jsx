@@ -28,7 +28,7 @@ export default class AddNewInventoryItem extends Component {
       category: "",
       status: "",
       quantity: "",
-      warehouse: "",
+      warehouseName: "",
     };
   }
 
@@ -154,7 +154,7 @@ export default class AddNewInventoryItem extends Component {
 
   warehouseValidation = () => {
     //Phone Number
-    if (this.state.warehouse > 0) {
+    if (this.state.warehouseName > 0) {
       this.setState({ warehouseValid: true });
       return true;
     } else {
@@ -192,18 +192,21 @@ export default class AddNewInventoryItem extends Component {
 
   //******** API Call To Upload A Video ******** */
   //Posts A Comment To The Video
-  createNewInventory = async (e) => {
-    const newWarehouse = {
-      warehouseName: this.state.warehouse,
+  editInventory = async (e) => {
+    const currentId = this.props.match.params.warehouseId;
+    // console.log(currentId);
+    const newInventory = {
       itemName: this.state.itemName,
       description: this.state.description,
       category: this.state.category,
       status: this.state.status,
       quantity: this.state.quantity,
+      warehouseName: this.state.warehouseName,
     };
-    // await axios
-    //   .post(API_URL_NEW_INVENTORY, newWarehouse)
-    //   .then((response) => {});
+    // console.log(newWarehouse);
+    await axios
+      .put(API_URL_EDIT_INVENTORY(currentId), newInventory)
+      .then((response) => {});
   };
 
   render() {
@@ -366,7 +369,7 @@ export default class AddNewInventoryItem extends Component {
                     : "form__dropdown"
                 }`}
                 type="text"
-                name="warehouse"
+                name="warehouseName"
                 onChange={this.handleChange}
               >
                 <option value="0">Please select</option>
