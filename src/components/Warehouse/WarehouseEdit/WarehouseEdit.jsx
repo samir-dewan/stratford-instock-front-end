@@ -9,7 +9,7 @@ import axios from "axios";
 
 const API_URL_EDIT_WAREHOUSE = (id) =>
   `http://localhost:5000/warehouses/${id}/edit`;
-const API_URL_GET_WAREHOUSES = (id) => `http://localhost:5000/${id}/edit`;
+const API_URL_GET_WAREHOUSES = (id) => `http://localhost:5000/${id}`;
 
 export default class WarehouseEdit extends Component {
   constructor(props) {
