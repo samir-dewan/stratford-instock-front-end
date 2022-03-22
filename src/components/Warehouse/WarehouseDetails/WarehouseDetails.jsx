@@ -2,7 +2,6 @@
 
 //IMPORT MODULES
 import React, { useState } from "react";
-import axios from "axios";
 import { GET_SINGLE_WAREHOUSE_API_URL } from "../../../api/endpoints";
 
 //IMPORT COMPONENTS
