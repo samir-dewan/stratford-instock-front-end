@@ -63,7 +63,7 @@ export default function App() {
 					exact
 					render={(routerProps) => <InventoryAddNew {...routerProps} />}
 				/>
-				<Route
+				{/* <Route
 					path="/warehouse"
 					exact
 					render={(routerProps) => <Warehouse {...routerProps} />}
@@ -81,7 +81,7 @@ export default function App() {
 					path="/warehouse/add-new"
 					exact
 					render={(routerProps) => <WarehouseAddNew {...routerProps} />}
-				/>
+				/> */}
 				{/* <Route
           path="/inventory"
           exact
