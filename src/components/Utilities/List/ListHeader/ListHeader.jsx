@@ -8,7 +8,7 @@ import "./ListHeader.scss";
 //IMPORT COMPONENTS
 import Searchbar from "../../Searchbar/Searchbar";
 
-const ListHeader = ({ title, itemType }) => {
+const ListHeader = ({ title, itemType, url }) => {
 	return (
 		<>
 			<div className="header-container">
@@ -16,7 +16,7 @@ const ListHeader = ({ title, itemType }) => {
 					<h1 className="list__title">{title}</h1>
 					<div className="list__header-actions">
 						<Searchbar />
-						<Link to="/warehouse/add-new">
+						<Link to={`${url}/add`}>
 							<div className="list__add-button">+ Add New {itemType}</div>
 						</Link>
 					</div>

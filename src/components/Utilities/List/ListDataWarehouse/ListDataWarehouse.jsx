@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 import "../ListCard/ListCard.scss";
 import cardInfoIcon from "../../../../assets/icons/chevron_right-24px.svg";
 
-const ListDataWarehouse = ({ data }) => {
+const ListDataWarehouse = ({ data, url }) => {
+	const id = data.id;
 	return (
 		<>
 			<div className="card__content-wrapper">
 				<div className="card__col-one">
 					<div className="card__content-piece warehouse-label-1">
 						<label className="card__label">Warehouse</label>
-						<Link to="/">
+						<Link to={`warehouse/${id}`}>
 							<div className="card__info-wrapper">
 								<p className="card__info">{data.name}</p>
 								<img src={cardInfoIcon} alt="warehouse info" />
