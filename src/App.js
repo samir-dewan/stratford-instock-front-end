@@ -20,7 +20,7 @@ export default function App() {
 <<<<<<< HEAD
 	return (
 		<>
-			<Header />
+			<Header/>
 			<Switch>
 				<Redirect from="/" exact to="/warehouse" />
 				<Route
