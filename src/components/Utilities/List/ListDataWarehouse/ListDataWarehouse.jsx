@@ -12,7 +12,7 @@ const ListDataWarehouse = ({ data, url }) => {
 				<div className="card__col-one">
 					<div className="card__content-piece warehouse-label-1">
 						<label className="card__label">Warehouse</label>
-						<Link to={`${url}${id}`}>
+						<Link to={`warehouse/${id}`}>
 							<div className="card__info-wrapper">
 								<p className="card__info">{data.name}</p>
 								<img src={cardInfoIcon} alt="warehouse info" />
