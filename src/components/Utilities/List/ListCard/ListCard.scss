@@ -167,6 +167,16 @@
 			display: flex;
 			align-items: center;
 		}
+		&__col-one-warehouse-card {
+			width: 66%;
+			display: flex;
+			justify-content: space-between;
+		}
+		&__col-two-warehouse-card {
+			padding-left: 40px;
+			flex-grow: 1;
+			display: flex;
+		}
 
 		&__label {
 			display: none;
