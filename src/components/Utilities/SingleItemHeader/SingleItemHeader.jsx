@@ -11,21 +11,29 @@ import "../../Warehouse/WarehouseAddNew/WarehouseAddNew.scss";
 import backArrow from "../../../assets/icons/arrow_back-24px.svg";
 import edit from "../../../assets/icons/edit-24px.svg";
 
-const SingleItemHeader = ({ data }) => {
-  // const goBack = () => {
-  //   props.history.goBack();
-  // };
+const SingleItemHeader = ({ data, path, url }) => {
+  let newPath;
+  if (path === "/warehouse/:warehouseId") {
+    newPath = "/warehouse";
+  } else {
+    newPath = "/inventory";
+  }
+
+  console.log(path);
+
   if (data) {
     const title = data.name || data.itemName;
     return (
       <>
         <div className="header-container list__header item-header">
           <div className="item-header__wrapper">
-            <img src={backArrow} alt="back" className="item-header__icon" />
+            <Link to={`${newPath}`}>
+              <img src={backArrow} alt="back" className="item-header__icon" />
+            </Link>
             <h1 className="list__title item-header__title">{title}</h1>
           </div>
 
-          <Link to={`/inventory/${data.id}/edit`}>
+          <Link to={`${newPath}/${data.id}/edit`}>
             <img
               src={edit}
               alt="edit"
