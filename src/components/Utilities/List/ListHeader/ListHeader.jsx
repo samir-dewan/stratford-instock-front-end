@@ -17,7 +17,7 @@ const ListHeader = ({ title, itemType, url }) => {
           <h1 className="list__title">{title}</h1>
           <div className="list__header-actions">
             <Searchbar />
-            <Link to={`${url}/warehouse/add`}>
+            <Link to={`${url}/add`}>
               <div className="list__add-button">+ Add New {itemType}</div>
             </Link>
           </div>

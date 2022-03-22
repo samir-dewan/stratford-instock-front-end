@@ -14,6 +14,8 @@ import List from "../Utilities/List/List";
 
 const Warehouse = (routerProps) => {
   const url = routerProps.match.url;
+  //   const url = urlRouter + "/warehouse";
+  console.log(url);
   return (
     <>
       {/* <Switch>
@@ -48,6 +50,7 @@ const Warehouse = (routerProps) => {
         itemType="Warehouse"
         apiUrl={GET_WAREHOUSES_API_URL}
         url={url}
+        // urlRouter={urlRouter}
       />
     </>
   );

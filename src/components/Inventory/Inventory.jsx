@@ -13,17 +13,18 @@ import List from "../Utilities/List/List";
 import ListDataInventory from "../Utilities/List/ListDataInventory/ListDataInventory";
 
 const Inventory = (routerProps) => {
-	const url = routerProps.match.url;
-	return (
-		<>
-			<List
-				title="Inventory"
-				itemType="Item"
-				apiUrl={GET_INVENTORIES_API_URL}
-				url={url}
-			/>
-		</>
-	);
+  const url = routerProps.match.url;
+  console.log(url);
+  return (
+    <>
+      <List
+        title="Inventory"
+        itemType="Item"
+        apiUrl={GET_INVENTORIES_API_URL}
+        url={url}
+      />
+    </>
+  );
 };
 
 export default Inventory;
