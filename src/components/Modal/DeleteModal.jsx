@@ -1,3 +1,5 @@
+/** @format */
+
 import axios from "axios";
 import React from "react";
 import CloseIcon from "../../assets/icons/close-24px.svg";
@@ -7,12 +9,12 @@ export default function DeleteModal({ cardType, data, show, onClose, url }) {
   const handleDeleteWarehouse = () => {
     axios
       .delete(`http://localhost:5000/${data.id}`)
-      .then(console.log("delete successfull"));
+      .then(console.log("delete successfull") && onClose);
   };
   const handleDeleteInventoryItem = () => {
     axios
       .delete(`http://localhost:5000/${data.warehouseID}`)
-      .then(console.log("delete successfull"));
+      .then(console.log("delete successfull") && onClose);
   };
   if (!show) {
     return null;
@@ -42,7 +44,7 @@ export default function DeleteModal({ cardType, data, show, onClose, url }) {
                     Cancel
                   </button>
                   <button
-                    onClick={handleDeleteWarehouse && onClose}
+                    onClick={handleDeleteWarehouse}
                     className="modal__button modal__button--delete"
                   >
                     Delete
@@ -76,7 +78,7 @@ export default function DeleteModal({ cardType, data, show, onClose, url }) {
                     Cancel
                   </button>
                   <button
-                    onClick={handleDeleteInventoryItem && onClose}
+                    onClick={handleDeleteInventoryItem}
                     className="modal__button modal__button--delete"
                   >
                     Delete

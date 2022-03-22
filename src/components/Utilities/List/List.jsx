@@ -50,7 +50,7 @@ const List = ({ title, itemType, apiUrl, url, path }) => {
         {/* Specifies a title e.g. Warehouses and an item type e.g. warehouse */}
         {path === "/warehouse/:warehouseId" ? (
           <>
-            <SingleItemHeader data={data[0]} />
+            <SingleItemHeader data={data[0]} path={path} url={url} />
             <WarehouseCard data={data[0]} />
           </>
         ) : (
