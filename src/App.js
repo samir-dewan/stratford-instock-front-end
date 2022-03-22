@@ -19,7 +19,7 @@ import InventoryAddNew from "./components/Inventory/InventoryAddNew/InventoryAdd
 export default function App() {
 	return (
 		<>
-			<Header />
+			<Header/>
 			<Switch>
 				<Route
 					path="/warehouse"
