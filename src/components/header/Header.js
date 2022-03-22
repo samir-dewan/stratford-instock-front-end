@@ -16,7 +16,7 @@ const Header = () => {
         <div className="header__button-flex">
           <Link to="/warehouse">
             <button
-              onClick={() => (setLink = "warehouse")}
+              onClick={() => (setLink("warehouse"))}
               className={
                 link == "warehouse" ? "header__button-active" : "header__button"
               }
@@ -26,7 +26,7 @@ const Header = () => {
           </Link>
           <Link to="/inventory">
             <button
-              onClick={() => (setLink = "inventory")}
+              onClick={() => (setLink("inventory"))}
               className={
                 link == "inventory" ? "header__button-active" : "header__button"
               }
