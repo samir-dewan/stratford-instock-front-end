@@ -1,0 +1,41 @@
+/** @format */
+
+/** @format */
+
+@use "../../../styles/partials/breakpoints" as *;
+@use "../../../styles/partials/design-spec" as *;
+@use "../../../styles/partials/design-colours" as *;
+@use "../../../styles/partials/fonts" as *;
+@use "../../../styles/partials/resets" as *;
+
+.item-header {
+	// @include header-container;
+	// z-index: 90;
+
+	background-color: $primary__white;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 1rem 1.5rem;
+	height: 92px;
+	@include tablet {
+		justify-content: flex-start;
+		padding: 2rem 2.5rem 1.313rem 2.5rem;
+	}
+	@include desktop {
+		justify-content: flex-start;
+		padding: 2rem 2.5rem;
+	}
+}
+&__icon {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+&__title {
+	@extend .design-spec__page-header;
+	padding: 0 0 0 0.5rem;
+	@include tablet {
+		padding: 0 0 0 0.5rem;
+	}
+}

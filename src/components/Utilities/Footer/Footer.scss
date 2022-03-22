@@ -11,7 +11,7 @@ Add by wrapping content in an element with class footer */
 	width: 100%;
 	padding: 0 16px;
 	background-color: $background__page-table-CTA;
-	z-index: -10;
+	// z-index: -10;
 
 	> * {
 		position: relative;
