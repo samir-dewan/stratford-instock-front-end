@@ -12,6 +12,9 @@ import backArrow from "../../../assets/icons/arrow_back-24px.svg";
 import edit from "../../../assets/icons/edit-24px.svg";
 
 const SingleItemHeader = ({ data }) => {
+  // const goBack = () => {
+  //   props.history.goBack();
+  // };
   if (data) {
     const title = data.name || data.itemName;
     return (

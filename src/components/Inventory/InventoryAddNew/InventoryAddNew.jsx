@@ -32,7 +32,7 @@ export default class AddNewInventoryItem extends Component {
   }
 
   goBack = () => {
-    this.props.history.push("/inventory");
+    this.props.history.goBack();
   };
 
   handleChange = (e) => {

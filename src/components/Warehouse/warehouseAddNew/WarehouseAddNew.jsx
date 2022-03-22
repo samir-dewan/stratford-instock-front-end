@@ -38,7 +38,7 @@ export default class WarehouseAddNew extends Component {
   }
 
   goBack = () => {
-    this.props.history.push("/");
+    this.props.history.goBack();
   };
 
   handleChange = (e) => {

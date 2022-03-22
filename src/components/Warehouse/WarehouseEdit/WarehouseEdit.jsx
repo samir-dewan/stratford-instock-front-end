@@ -39,7 +39,7 @@ export default class WarehouseEdit extends Component {
   }
 
   goBack = () => {
-    this.props.history.push("/");
+    this.props.history.goBack();
   };
 
   componentDidMount() {
