@@ -1,7 +1,6 @@
 /** @format */
 
 import "./InventoryEdit.scss";
-// import Button from "../../Utilities/Button/Button.jsx";
 import backArrow from "../../../assets/icons/arrow_back-24px.svg";
 import error from "../../../assets/icons/error-24px.svg";
 import React, { Component } from "react";
