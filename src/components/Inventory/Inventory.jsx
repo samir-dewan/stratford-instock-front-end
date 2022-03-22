@@ -10,7 +10,6 @@ import { GET_INVENTORIES_API_URL } from "../../api/endpoints";
 // import InventoryEdit from "./InventoryEdit/InventoryEdit";
 // import InventoryAddNew from "./InventoryAddNew/InventoryAddNew";
 import List from "../Utilities/List/List";
-import ListDataInventory from "../Utilities/List/ListDataInventory/ListDataInventory";
 
 const Inventory = (routerProps) => {
 	const url = routerProps.match.url;

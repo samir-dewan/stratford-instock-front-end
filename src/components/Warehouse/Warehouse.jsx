@@ -16,33 +16,6 @@ const Warehouse = (routerProps) => {
 	const url = routerProps.match.url;
 	return (
 		<>
-			{/* <Switch>
-				<Route
-					path={`${url}/:warehouseId`}
-					exact
-					render={(routerProps) => <WarehouseDetails {...routerProps} />}
-				/>
-				<Route
-					path={`${url}/:warehouseId/delete`}
-					exact
-					render={(routerProps) => <WarehouseDetails {...routerProps} />}
-				/>
-				<Route
-					path={`${url}/:warehouseId/edit`}
-					exact
-					render={(routerProps) => <WarehouseEdit {...routerProps} />}
-				/>
-				<Route
-					path={`${url}/add-new`}
-					exact
-					render={(routerProps) => (
-						<WarehouseAddNew
-							{...routerProps}
-							handleSubmit={this.handleSubmit}
-						/>
-					)}
-				/>
-			</Switch> */}
 			<List
 				title="Warehouses"
 				itemType="Warehouse"
