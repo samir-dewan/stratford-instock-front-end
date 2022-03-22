@@ -12,7 +12,7 @@ const ListDataInventory = ({ data, url }) => {
 				<div className="card__col-one">
 					<div className="card__content-piece inventory-label-1">
 						<label className="card__label">Inventory Item</label>
-						<Link to={`inventory/${id}`}>
+						<Link to={`/inventory/${id}`}>
 							<div className="card__info-wrapper">
 								<p className="card__info">{data.itemName}</p>
 								<img src={cardInfoIcon} alt="inventory info" />
