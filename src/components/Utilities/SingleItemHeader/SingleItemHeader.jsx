@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 //IMPORT COMPONENTS
 import "../List/ListHeader/ListHeader.scss";
 import "./SingleItemHeader.scss";
-import "../../Warehouse/warehouseAddNew/WarehouseAddNew.scss";
+import "../../Warehouse/WarehouseAddNew/WarehouseAddNew.scss";
 import backArrow from "../../../assets/icons/arrow_back-24px.svg";
 import edit from "../../../assets/icons/edit-24px.svg";
 
 const SingleItemHeader = ({ data }) => {
 	if (data) {
-		const title = data.name;
+		const title = data.name || data.itemName;
 		return (
 			<>
 				<div className="header-container list__header item-header">
@@ -22,7 +22,7 @@ const SingleItemHeader = ({ data }) => {
 						<h1 className="list__title item-header__title">{title}</h1>
 					</div>
 
-					<Link to={`${data.id}/edit`}>
+					<Link to={`/${data.id}/edit`}>
 						<img
 							src={edit}
 							alt="edit"
