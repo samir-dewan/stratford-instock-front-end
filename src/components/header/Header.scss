@@ -42,6 +42,12 @@
 	&__button {
 		@extend .design-spec__button;
 		text-align: center;
+		&-active{
+			@extend .design-spec__button;
+			text-align: center;
+			background-color: $primary__text;
+			color: $background__page-table-CTA;
+		}
 	}
 	&__logo {
 		display: block;
