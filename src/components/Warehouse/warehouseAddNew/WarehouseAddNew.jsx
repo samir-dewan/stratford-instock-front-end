@@ -37,6 +37,10 @@ export default class WarehouseAddNew extends Component {
     };
   }
 
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -210,7 +214,12 @@ export default class WarehouseAddNew extends Component {
       <section className="footer">
         <div className="warehouse">
           <div className="warehouse__header">
-            <img className="warehouse__icon" src={backArrow} alt="back arrow" />
+            <img
+              className="warehouse__icon"
+              src={backArrow}
+              alt="back arrow"
+              onClick={this.goBack}
+            />
             <h1 className="warehouse__title">Add New Warehouse</h1>
           </div>
           <form className="form-container" onSubmit={this.handleSubmit}>

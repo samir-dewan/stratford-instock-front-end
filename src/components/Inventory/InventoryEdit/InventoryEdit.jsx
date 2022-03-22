@@ -32,6 +32,11 @@ export default class AddNewInventoryItem extends Component {
 		};
 	}
 
+	goBack = () => {
+		this.props.history.goBack();
+		// console.log(this.props.history);
+	};
+
 	componentDidMount() {
 		this.getData();
 	}
@@ -227,7 +232,12 @@ export default class AddNewInventoryItem extends Component {
 			<section>
 				<div className="warehouse">
 					<div className="warehouse__header">
-						<img className="warehouse__icon" src={backArrow} alt="back arrow" />
+						<img
+							className="warehouse__icon"
+							src={backArrow}
+							alt="back arrow"
+							onClick={this.goBack}
+						/>
 						<h1 className="warehouse__title">Edit New Inventory Item</h1>
 					</div>
 					<form className="form-container" onSubmit={this.handleSubmit}>
