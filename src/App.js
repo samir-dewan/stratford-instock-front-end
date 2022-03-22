@@ -21,6 +21,7 @@ export default function App() {
 		<>
 			<Header />
 			<Switch>
+				<Redirect from="/" exact to="/warehouse" />
 				<Route
 					path="/warehouse"
 					exact

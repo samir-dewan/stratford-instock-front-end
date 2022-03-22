@@ -54,7 +54,7 @@ const List = ({ title, itemType, apiUrl, url, path }) => {
 						<WarehouseCard data={data[0]} />
 					</>
 				) : (
-					<ListHeader title={title} itemType={itemType} />
+					<ListHeader title={title} itemType={itemType} url={url} />
 				)}
 
 				{/* Conditional import of Column Names */}
