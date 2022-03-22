@@ -16,7 +16,6 @@ const WarehouseDetails = (routerProps) => {
 	const url = routerProps.match.url;
 	const path = routerProps.match.path;
 	const id = routerProps.match.params.warehouseId;
-	axios.get(GET_SINGLE_WAREHOUSE_API_URL(id)).then((res) => console.log(res));
 
 	return (
 		<>
