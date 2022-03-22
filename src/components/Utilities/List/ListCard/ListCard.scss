@@ -108,7 +108,14 @@
 	&__actions {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		margin: 3px 0;
+
+		a {
+			img {
+				padding: 6px 0 0 12px;
+			}
+		}
 
 		&-label {
 			width: 64px;

@@ -35,21 +35,24 @@ const InventoryItem = (routerProps) => {
 	return (
 		<>
 			<SingleItemHeader data={data} />
-			<div className="card">
-				<div className="card__content-wrapper">
-					<div className="card__col-one">
-						<div className="card__content-piece warehouse-label-2">
-							<label className="card__label">item description: </label>
+			<div className="inventory-item">
+				<div className="inventory-item__wrapper">
+					<div className="inventory-item__container-1">
+						<div className="card__content-piece inventory-item__label-1">
+							<label className="inventory-item__label">
+								item description:{" "}
+							</label>
 							<p className="card__info">{data.description}</p>
 						</div>
-						<div className="card__content-piece warehouse-label-3">
-							<label className="card__label">category:</label>
+						<div className="card__content-piece inventory-item__label-2">
+							<label className="inventory-item__label">category:</label>
 							<p className="card__info">{data.category}</p>
 						</div>
 					</div>
-					<div className="card__col-two">
-						<div className="card__content-piece warehouse-label-3">
-							<label className="card__label">status:</label>
+					<hr className="inventory-item__divider" />
+					<div className="inventory-item__container-2">
+						<div className="card__content-piece inventory-item__label-3">
+							<label className="inventory-item__label">status:</label>
 							<p
 								className={
 									"card__status " +
@@ -60,12 +63,12 @@ const InventoryItem = (routerProps) => {
 								{data.status}
 							</p>
 						</div>
-						<div className="card__content-piece warehouse-label-3">
-							<label className="card__label">quantity:</label>
+						<div className="card__content-piece inventory-item__label-4">
+							<label className="inventory-item__label">quantity:</label>
 							<p className="card__info">{data.quantity}</p>
 						</div>
-						<div className="card__content-piece warehouse-label-4">
-							<label className="card__label">warehouse</label>
+						<div className="card__content-piece inventory-item__label-5">
+							<label className="inventory-item__label">warehouse</label>
 							<p className="card__info">{data.warehouseName}</p>
 						</div>
 					</div>
