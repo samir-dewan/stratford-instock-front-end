@@ -13,17 +13,44 @@ import { GET_WAREHOUSES_API_URL } from "../../api/endpoints";
 import List from "../Utilities/List/List";
 
 const Warehouse = (routerProps) => {
-	const url = routerProps.match.url;
-	return (
-		<>
-			<List
-				title="Warehouses"
-				itemType="Warehouse"
-				apiUrl={GET_WAREHOUSES_API_URL}
-				url={url}
-			/>
-		</>
-	);
+  const url = routerProps.match.url;
+  return (
+    <>
+      {/* <Switch>
+				<Route
+					path={`${url}/:warehouseId`}
+					exact
+					render={(routerProps) => <WarehouseDetails {...routerProps} />}
+				/>
+				<Route
+					path={`${url}/:warehouseId/delete`}
+					exact
+					render={(routerProps) => <WarehouseDetails {...routerProps} />}
+				/>
+				<Route
+					path={`${url}/:warehouseId/edit`}
+					exact
+					render={(routerProps) => <WarehouseEdit {...routerProps} />}
+				/>
+				<Route
+					path={`${url}/add-new`}
+					exact
+					render={(routerProps) => (
+						<WarehouseAddNew
+							{...routerProps}
+							handleSubmit={this.handleSubmit}
+						/>
+					)}
+				/>
+			</Switch> */}
+      <List
+        title="Warehouses"
+        itemType="Warehouse"
+        apiUrl={GET_WAREHOUSES_API_URL}
+        url={url}
+      />
+    </>
+  );
 };
 
 export default Warehouse;

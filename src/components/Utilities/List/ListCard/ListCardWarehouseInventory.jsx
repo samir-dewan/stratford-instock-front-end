@@ -25,7 +25,7 @@ const ListCardWarehouseInventory = ({ cardType, cardIndex, data, url }) => {
 					<Link to={`${url}/${id}/delete`}>
 						<img src={deleteIcon} alt="delete" />
 					</Link>
-					<Link to={`${url}/${id}/edit`}>
+					<Link to={`inventory/${id}/edit`}>
 						<img src={editIcon} alt="edit" />
 					</Link>
 				</div>
