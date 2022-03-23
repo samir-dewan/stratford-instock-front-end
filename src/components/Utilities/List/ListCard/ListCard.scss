@@ -77,7 +77,12 @@
 		display: flex;
 		padding: 16px 0;
 	}
-
+	&__arrow {
+		transition: transform 0.5s;
+	}
+	&:hover .card__arrow{
+		transform: translateX(4px);
+	}
 	&__label {
 		@extend .design-spec__table-header;
 	}

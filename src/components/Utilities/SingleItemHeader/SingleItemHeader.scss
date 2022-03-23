@@ -27,6 +27,9 @@
 	&__wrapper {
 		display: flex;
 		align-items: center;
+		&:hover .item-header__icon{
+			transform: translateX(-4px);
+		}
 	}
 	&__icon {
 		background-color: $primary__white;
@@ -34,6 +37,7 @@
 		padding: 0;
 		height: 1.5rem;
 		width: 1.5rem;
+		transition: transform 0.5s;
 	}
 	&__edit-icon {
 		justify-self: flex-end;
