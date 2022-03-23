@@ -15,7 +15,7 @@ const ListDataInventory = ({ data, url }) => {
 						<Link to={`/inventory/${id}`}>
 							<div className="card__info-wrapper">
 								<p className="card__info">{data.itemName}</p>
-								<img src={cardInfoIcon} alt="inventory info" />
+								<img className="card__arrow" src={cardInfoIcon} alt="inventory info" />
 							</div>
 						</Link>
 					</div>
